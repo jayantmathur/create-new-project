@@ -28,7 +28,6 @@ node_modules/
 ######################
 **.DS_Store*
 ehthumbs.db
-Icon?
 Thumbs.db
 ._*
 **settings.dat*
@@ -75,4 +74,4 @@ assets/img/.DS_Store
 
 # My files #
 exportpath.txt
-*.bat
+backup.bat
