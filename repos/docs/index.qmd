@@ -1,0 +1,54 @@
+---
+title: Title
+subtitle: A subtitle
+date: today
+
+author:
+  - name: Jayant Mathur
+    orcid: 0000-0003-3147-7234
+    affiliations:
+      - ref: psu
+    corresponding: true
+    email: jayant@psu.edu
+  - name: Eren Fukuda
+    affiliations:
+      - ref: uwm
+        # - Member of ASME`
+
+affiliations:
+  - id: psu
+    name: The Pennsylvania State University
+    department: Engineering Design and Innovation
+    city: University Park
+    region: PA
+    postal-code: 16802
+  - id: uwm
+    name: University of Wisconsin-Madison
+    department: Department of Psychology
+    city: Madison
+    region: WI
+    postal-code: 53703
+
+abstract: |
+  This document is only a demo explaining how to use the template.
+
+keywords: [template, demo]
+
+format:
+  main-pdf: default
+---
+
+# Heading
+
+Content cited from @mathurEffects2023 and @cayleyComprehensive2022 as shown in @fig-sample is also with a footnote [^sample]
+
+This text continues
+
+[^sample]: this is a sample footnote
+
+![Sample figure](public/logo.svg){#fig-sample width=3.5in}
+
+# Bibliography
+
+:::{#refs}
+:::

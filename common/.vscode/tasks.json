@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Check saved version in export path and import changes if they exist",
+      "type": "shell",
+      "command": "./packages/symlink/index.bat update",
+      // "presentation": {
+      // 	"reveal": "always",
+      // 	"panel": "new"
+      // },
+      "runOptions": { "runOn": "folderOpen" }
+    }
+  ]
+}

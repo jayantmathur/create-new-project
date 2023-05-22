@@ -1,0 +1,49 @@
+title: Journal of Mechanical Design
+version: 0.1.0
+contributes:
+  formats:
+    common:
+      date-format: long
+      colorlinks: true
+      urlcolor: cyan
+      linkcolor: cyan
+      fontsize: 10pt
+      papersize: letter
+      mainfont: Calibri
+
+      # toc: true
+      number-sections: true
+      # lof: true
+      # lot: true
+
+      fig-width: 3.5
+
+      csl: jmd.csl
+
+    pdf:
+      geometry:
+        - margin=1in
+
+      # fig-pos: "H"
+      fig-pos: "!htb"
+
+      pdf-engine: lualatex
+
+      template: index.tex
+
+      template-partials:
+        - "partials/_authors.tex"
+        - "partials/before-body.tex"
+        - "partials/title.tex"
+
+      include-in-header: "partials/_header.tex"
+
+      filters:
+        - handlesvgs.lua
+
+      format-resources:
+        - handlesvgs.lua
+
+      knitr:
+        opts_chunk:
+          dev: pdf

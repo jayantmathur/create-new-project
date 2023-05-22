@@ -1,0 +1,6 @@
+{
+	"scripts": {
+		"serve": "node server.js --port ${port + 1000}",
+		"preserve": "adb reverse tcp:${port + 1000} tcp:${port + 1000} & set HTTPS=true & ipconfig | findstr IPv4"
+	}
+}

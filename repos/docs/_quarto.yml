@@ -1,0 +1,18 @@
+project:
+  output-dir: output
+
+bibliography: [references.json]
+
+filters:
+  - latex-environment
+
+commands: [hl]
+
+execute:
+  freeze: auto
+  cache: refresh
+  include: false
+  echo: false
+  output: false
+  message: false
+  enabled: true

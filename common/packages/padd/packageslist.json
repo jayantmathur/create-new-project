@@ -1,0 +1,94 @@
+{
+  "webui": {
+    "dependencies": [
+      "daisyui",
+      "react-spring",
+      "react-icons",
+      "react-hook-form"
+    ],
+    "devDependencies": ["tailwindcss", "postcss", "autoprefixer"],
+    "postinstall": "npx tailwindcss init -p && robocopy > nul ..\\..\\resources\\web\\tailwind .\\ /e & echo Done",
+    "scripts": {}
+  },
+  "auth": {
+    "dependencies": ["next-auth"],
+    "devDependencies": [],
+    "postinstall": "",
+    "scripts": {}
+  },
+  "database": {
+    "dependencies": [
+      "@supabase/supabase-js",
+      "@prisma/client",
+      "react-hook-form"
+    ],
+    "devDependencies": ["supabase", "prisma", "encoding"],
+    "postinstall": "robocopy > nul ..\\..\\resources\\web\\supabase .\\supabase /e & echo Done",
+    "scripts": {
+      "update-supatypes": "supabase gen types typescript --schema public > supabase/types.ts"
+    }
+  },
+  "redux": {
+    "dependencies": ["react-redux", "@reduxjs/toolkit"],
+    "devDependencies": [],
+    "postinstall": "",
+    "scripts": {}
+  },
+  "appdeploy": {
+    "dependencies": [
+      "@imbios/next-pwa",
+      "@vercel/analytics",
+      "@capacitor/core",
+      "@capacitor/android",
+      "@capacitor/ios"
+    ],
+    "devDependencies": ["vercel", "@capacitor/cli"],
+    "postinstall": "next telemetry disable",
+    "scripts": { "deploy": "vercel --prod" }
+  },
+  "api": {
+    "dependencies": ["axios", "swr"],
+    "devDependencies": [],
+    "postinstall": "",
+    "scripts": {}
+  },
+  "mdx": {
+    "dependencies": [
+      "@next/mdx",
+      "@mdx-js/loader",
+      "@mdx-js/react",
+      "next-mdx-remote",
+      "gray-matter",
+      "remark-gfm"
+    ],
+    "devDependencies": [],
+    "postinstall": "",
+    "scripts": {}
+  },
+  "three": {
+    "dependencies": ["r3f-perf"],
+    "devDependencies": [
+      "@react-three/cannon",
+      "@react-three/drei",
+      "@react-three/fiber",
+      "@react-three/postprocessing",
+      "@react-three/xr",
+      "@react-three/flex",
+      "@react-three/csg",
+      "@types/three",
+      "three",
+      "three-stdlib",
+      "three-bvh-csg"
+    ],
+    "postinstall": "",
+    "scripts": {}
+  },
+  "revealjs": {
+    "dependencies": [],
+    "devDependencies": ["decktape"],
+    "postinstall": "robocopy > nul ..\\..\\resources\\docs\\quarto\\rjs .\\_extensions\\rjs /e & echo Done",
+    "scripts": {
+      "postbuild": "decktape --size 960x720 .\\output\\index.html .\\output\\index.pdf"
+    }
+  }
+}

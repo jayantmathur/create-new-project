@@ -1,0 +1,59 @@
+title: Main Template
+version: 0.1.0
+contributes:
+    formats:
+        common:
+            date-format: long
+            colorlinks: true
+            urlcolor: cyan
+            linkcolor: cyan
+            fontsize: 10pt
+            papersize: letter
+            mainfont: Calibri
+            sansfont: Calibri
+
+            # toc: true
+            # number-sections: true
+            # lof: true
+            # lot: true
+
+            fig-width: 3.5
+
+            csl: https://www.zotero.org/styles/chicago-author-date
+
+        pdf:
+            geometry:
+                - margin=1in
+
+            # fig-pos: "H"
+            fig-pos: '!htb'
+
+            pdf-engine: lualatex
+
+            template: 'index.tex'
+
+            template-partials:
+                - 'partials/after-body.tex'
+                - 'partials/before-bib.tex'
+                - 'partials/before-body.tex'
+                - 'partials/biblio.tex'
+                - 'partials/citations.tex'
+                - 'partials/doc-class.tex'
+                - 'partials/graphics.tex'
+                - 'partials/pandoc.tex'
+                - 'partials/tables.tex'
+                - 'partials/tightlist.tex'
+                - 'partials/title.tex'
+                - 'partials/toc.tex'
+
+            include-in-header: 'partials/_header.tex'
+
+            filters:
+                - handlesvgs.lua
+
+            format-resources:
+                - handlesvgs.lua
+
+            knitr:
+                opts_chunk:
+                    dev: pdf
