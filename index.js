@@ -176,7 +176,7 @@ const createApp = async (project, type) => {
 		);
 
 		await appendJson(
-			`${project.name}/apps/${appName}/public/mainfest.json`,
+			`${project.name}/apps/${appName}/public/manifest.json`,
 			{
 				name: `${project.name} app: ${appName}`,
 				short_name: appName
