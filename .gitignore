@@ -69,10 +69,10 @@ library/vendors/composer
 assets/img/.DS_Store
 
 # VSCode related files #
-.vscode
+/.vscode
 
 /.luarc.json
 
 # My files #
-*.txt
+exportpath.txt
 *.bat
