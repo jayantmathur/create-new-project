@@ -26,7 +26,7 @@
 	],
 	"scripts": {
 		"push": "yarn install & yarn typesync & yarn install & yarn format & yarn save & yarn version",
-		"postpush": "npm install -g & git add . & git commit -m \"repo: update\" & git push",
+		"postpush": "npm install -g & git add . & git commit -m \"repo: misc update\" & git push",
 		"format": "prettier --write \"./**/*.{js,json}\"",
 		"save": "./utils/backup.bat",
 		"create-index": "node ./packages/create-index",
