@@ -12,16 +12,13 @@
 //   },
 // })
 
-// const withPWA = require('next-pwa')({
+// const withPWA = require('@imbios/next-pwa')({
 // 	dest: 'public',
 // 	disable: process.env.NODE_ENV === 'development'
 // });
 
 const nextConfig = {
-	reactStrictMode: true,
-	typescript: {
-		ignoreBuildErrors: true
-	}
+	// output: 'export' // for static site generation
 };
 
 module.exports = nextConfig;
