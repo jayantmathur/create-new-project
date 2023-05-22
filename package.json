@@ -1,7 +1,7 @@
 {
 	"name": "create-new-project",
 	"description": "Custom CLI to create a new project repository",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"license": "UNLICENSED",
 	"type": "module",
 	"bin": {
@@ -25,8 +25,7 @@
 		"public"
 	],
 	"scripts": {
-		"preinstall": "yarn typesync",
-		"push": "yarn install & yarn format & yarn save & yarn version",
+		"push": "yarn install & yarn typesync & yarn install & yarn format & yarn save & yarn version",
 		"postpush": "npm install -g & git add . && git commit -m \"repo: update\" && git push",
 		"format": "prettier --write \"./**/*.{js,json}\"",
 		"save": "./utils/backup.bat",
