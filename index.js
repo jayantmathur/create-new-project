@@ -213,6 +213,7 @@ const createApp = async (project, type) => {
 		await appendJson(`${project.name}/apps/${appName}/package.json`, {
 			name: appName,
 			scripts: {
+				predev: 'ipconfig | findstr /i ipv4',
 				dev: `next dev --port ${port} --turbo`,
 				push: 'yarn version',
 				deploy: 'echo Vercel package not installed for app deployment! Install Vercel first...'
@@ -236,6 +237,7 @@ const createApp = async (project, type) => {
 		await appendJson(`${project.name}/docs/${appName}/package.json`, {
 			name: appName,
 			scripts: {
+				predev: 'ipconfig | findstr /i ipv4',
 				dev: `quarto preview index.qmd --port ${port}`,
 				build: `quarto render index.qmd`,
 				activate:
