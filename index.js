@@ -107,8 +107,7 @@ const createNewProject = async project => {
 					execSync(
 						`yarn add -DW prettier prettier-plugin-latex @svgr/cli @svgr/plugin-jsx icon-gen`,
 						{
-							cwd: `${project.name}`,
-							stdio: 'ignore'
+							cwd: `${project.name}`
 						}
 					);
 

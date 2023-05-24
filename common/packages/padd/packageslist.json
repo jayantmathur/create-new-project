@@ -7,7 +7,7 @@
       "react-hook-form"
     ],
     "devDependencies": ["tailwindcss", "postcss", "autoprefixer"],
-    "postinstall": "npx tailwindcss init -p && robocopy > nul ..\\..\\resources\\web\\tailwind .\\ /e & echo Done",
+    "postinstall": "npx tailwindcss init -p && yarn import-resource --src ..\\..\\resources\\web\\tailwind --dest .\\ & echo Done",
     "scripts": {}
   },
   "auth": {
@@ -23,7 +23,7 @@
       "react-hook-form"
     ],
     "devDependencies": ["supabase", "prisma", "encoding"],
-    "postinstall": "robocopy > nul ..\\..\\resources\\web\\supabase .\\supabase /e & echo Done",
+    "postinstall": "yarn import-resource --src ..\\..\\resources\\web\\supabase --dest .\\supabase & echo Done",
     "scripts": {
       "update-supatypes": "supabase gen types typescript --schema public > supabase/types.ts"
     }
@@ -36,7 +36,7 @@
   },
   "appdeploy": {
     "dependencies": [
-      "@imbios/next-pwa",
+      "@ducanh2912/next-pwa",
       "@vercel/analytics",
       "@capacitor/core",
       "@capacitor/android",
@@ -86,7 +86,7 @@
   "revealjs": {
     "dependencies": [],
     "devDependencies": ["decktape"],
-    "postinstall": "robocopy > nul ..\\..\\resources\\docs\\quarto\\rjs .\\_extensions\\rjs /e & echo Done",
+    "postinstall": "yarn import-resource --src ..\\..\\resources\\docs\\quarto\\rjs --dest .\\_extensions\\rjs & echo Done",
     "scripts": {
       "postbuild": "decktape --size 960x720 .\\output\\index.html .\\output\\index.pdf"
     }
