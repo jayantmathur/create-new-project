@@ -55,73 +55,65 @@ const appendJson = async (filename, data) => {
 };
 
 const createNewProject = async project => {
-	// mkdirSync(`${project.name}`);
+	mkdirSync(`${project.name}`);
 
-	// execSync(`yarn init -y`, { cwd: `${project.name}` });
+	execSync(`yarn init -y`, { cwd: `${project.name}` });
 	// execSync(`yarn add -DW turbo`, { cwd: `${project.name}` });
 
-	execSync(`yarn create turbo ${project.name}`, {
-		stdio: 'inherit'
+	// execSync(`yarn create turbo ${project.name}`, {
+	// 	stdio: 'inherit'
+	// });
+
+	// await appendJson(`${project.name}/turbo.json`, {
+	// 	pipeline: {
+	// 		push: {
+	// 			cache: false
+	// 		}
+	// 	}
+	// });
+
+	// rm(
+	// 	`${project.name}/packages`,
+	// 	{ recursive: true, force: true },
+	// 	async () => {
+	// 		rm(
+	// 			`${project.name}/apps`,
+	// 			{ recursive: true, force: true },
+	// 			async () => {
+	// rm(`${project.name}/.git`, { recursive: true, force: true }, () => {});
+
+	execSync(`yarn add -DW turbo prettier prettier-plugin-latex`, {
+		cwd: `${project.name}`
 	});
 
-	await appendJson(`${project.name}/turbo.json`, {
-		pipeline: {
-			push: {
-				cache: false
-			}
+	await appendJson(`${project.name}/package.json`, {
+		private: true,
+		workspaces: ['apps/*', 'docs/*'],
+		// workspaces: ['docs/*'],
+		scripts: {
+			push: 'yarn format & yarn save & yarn version',
+			postpush: 'turbo run --no-daemon push',
+			build: 'turbo run --no-daemon build',
+			dev: 'turbo run --no-daemon dev',
+			format: 'prettier --write "**/*.{ts,tsx,md,qmd,tex,json,ipynb}" --loglevel silent',
+			save: './packages/symlink/index.bat',
+			padd: 'node ./packages/padd',
+			'import-resource': 'node ./packages/import-resource',
+			update: 'scoop update * & yarn upgrade & yarn install'
 		}
 	});
 
-	rm(
-		`${project.name}/packages`,
-		{ recursive: true, force: true },
-		async () => {
-			rm(
-				`${project.name}/apps`,
-				{ recursive: true, force: true },
-				async () => {
-					rm(
-						`${project.name}/.git`,
-						{ recursive: true, force: true },
-						() => {}
-					);
+	console.log('Created new project\n');
 
-					await appendJson(`${project.name}/package.json`, {
-						private: true,
-						// workspaces: ['apps/*', 'docs/*'],
-						workspaces: ['docs/*'],
-						scripts: {
-							push: 'yarn format & yarn save & yarn version',
-							postpush: 'turbo run --no-daemon push',
-							build: 'turbo run --no-daemon build',
-							dev: 'turbo run --no-daemon dev',
-							format: 'prettier --write "**/*.{ts,tsx,md,qmd,tex,json,ipynb}" --loglevel silent',
-							save: './packages/symlink/index.bat',
-							padd: 'node ./packages/padd',
-							'import-resource':
-								'node ./packages/import-resource',
-							update: 'scoop update * & yarn upgrade & yarn install'
-						}
-					});
+	await copy(`${__dirname}/common`, `${project.name}`);
+	console.log('Copied over core packages\n');
 
-					execSync(
-						`yarn add -DW prettier prettier-plugin-latex @svgr/cli @svgr/plugin-jsx icon-gen`,
-						{
-							cwd: `${project.name}`
-						}
-					);
-
-					console.log('Created new project\n');
-
-					await copy(`${__dirname}/common`, `${project.name}`);
-					console.log('Copied over core packages\n');
-
-					await sleep(1000);
-				}
-			);
-		}
-	);
+	await sleep(1000);
 };
+// 			);
+// 		}
+// 	);
+// };
 
 const createApp = async (project, type) => {
 	// const api = await axios.get('https://api.api-ninjas.com/v1/randomword', {
