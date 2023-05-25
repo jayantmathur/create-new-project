@@ -82,7 +82,7 @@ const createNewProject = async project => {
 	// 			async () => {
 	// rm(`${project.name}/.git`, { recursive: true, force: true }, () => {});
 
-	execSync(`yarn add -DW turbo prettier prettier-plugin-latex`, {
+	execSync(`yarn add -DW turbo prettier`, {
 		cwd: `${project.name}`
 	});
 
@@ -161,6 +161,10 @@ const createApp = async (project, type) => {
 			}
 		);
 
+		execSync(`yarn add -DW prettier-plugin-tailwindcss`, {
+			cwd: `${project.name}`
+		});
+
 		await copy(
 			`${__dirname}/repos/apps/repo`,
 			`${project.name}/apps/${appName}`
@@ -224,6 +228,10 @@ const createApp = async (project, type) => {
 			`${__dirname}/repos/docs`,
 			`${project.name}/docs/${appName}`
 		);
+
+		execSync(`yarn add -DW pretter-plugin-latex`, {
+			cwd: `${project.name}`
+		});
 
 		await appendJson(`${project.name}/docs/${appName}/package.json`, {
 			name: appName,
