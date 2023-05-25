@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "yargs": "latest",
-    "deepmerge": "latest"
+    "yargs": "^17.7.2",
+    "deepmerge": "^4.3.1"
   }
 }
