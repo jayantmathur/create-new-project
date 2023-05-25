@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "scripts": {
-    "preinstall": "yarn add -D yargs fs-extra"
+  "devDependencies": {
+    "yargs": "latest",
+    "fs-extra": "^11.1.0"
   }
 }
