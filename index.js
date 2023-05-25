@@ -288,14 +288,18 @@ const handleCleanup = async project => {
 	}
 
 	rm(`${project.name}/node_modules`, { recursive: true, force: true }, () => {
-		exec(`yarn install`, { cwd: `${project.name}` }, () =>
-			exec(`code ${project.name}`, err => {
-				if (err) throw err;
-				// clear();
-				console.log(chalk.green.bold('Done!!'));
-				console.log(chalk.blue.bold('Opening project in VS Code...\n'));
-			})
-		);
+		rm(`${project.name}/yarn.lock`, { force: true }, () => {
+			exec(`yarn install`, { cwd: `${project.name}` }, () =>
+				exec(`code ${project.name}`, err => {
+					if (err) throw err;
+					// clear();
+					console.log(chalk.green.bold('Done!!'));
+					console.log(
+						chalk.blue.bold('Opening project in VS Code...\n')
+					);
+				})
+			);
+		});
 	});
 };
 
