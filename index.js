@@ -88,7 +88,7 @@ const createNewProject = async project => {
 
 	await appendJson(`${project.name}/package.json`, {
 		private: true,
-		workspaces: ['apps/*', 'docs/*'],
+		workspaces: ['apps/*', 'docs/*', 'packages/*'],
 		// workspaces: ['docs/*'],
 		scripts: {
 			push: 'yarn format & yarn save & yarn version',
