@@ -229,7 +229,7 @@ const createApp = async (project, type) => {
 			`${project.name}/docs/${appName}`
 		);
 
-		execSync(`yarn add -DW pretter-plugin-latex`, {
+		execSync(`yarn add -DW prettier-plugin-latex`, {
 			cwd: `${project.name}`
 		});
 
