@@ -122,31 +122,31 @@ const createApp = async (project, type) => {
 	// 	}
 	// });
 
-	const api = await axios.get(
-		'https://random-word-api.herokuapp.com/word?length=4'
+	// const api = await axios.get(
+	// 	'https://random-word-api.herokuapp.com/word?length=4'
+	// );
+
+	// const appName = api.data[0];
+
+	let api = await axios.get(
+		`https://latinwordnet.exeter.ac.uk/api/index/r/?limit=1`
+	);
+	const count = api.data.count;
+
+	api = await axios.get(
+		`https://latinwordnet.exeter.ac.uk/api/index/r/?limit=1&offset=${Math.ceil(
+			Math.random() * count
+		)}`
 	);
 
-	const appName = api.data[0];
+	const name = api.data.results[0].lemma;
 
-	// let api = await axios.get(
-	// 	`https://latinwordnet.exeter.ac.uk/api/index/r/?limit=1`
-	// );
-	// const count = api.data.count;
-
-	// api = await axios.get(
-	// 	`https://latinwordnet.exeter.ac.uk/api/index/r/?limit=1&offset=${Math.ceil(
-	// 		Math.random() * count
-	// 	)}`
-	// );
-
-	// const name = api.data.results[0].lemma;
-
-	// const appName = name
-	// 	?.toLowerCase()
-	// 	?.replaceAll('\r', '')
-	// 	?.replaceAll('\n', '')
-	// 	?.replaceAll(' ', '')
-	// 	?.slice(0, 4);
+	const appName = name
+		?.toLowerCase()
+		?.replaceAll('\r', '')
+		?.replaceAll('\n', '')
+		?.replaceAll(' ', '')
+		?.slice(0, 4);
 
 	const port = Math.floor(Math.random() * (9999 - 1000) + 1000);
 
@@ -371,31 +371,31 @@ switch (project.action) {
 
 		if (cli.flags.name) project.name = cli.flags.name;
 		else {
-			// let api = await axios.get(
-			// 	`https://latinwordnet.exeter.ac.uk/api/index/r/?limit=1`
-			// );
-			// const count = api.data.count;
+			let api = await axios.get(
+				`https://latinwordnet.exeter.ac.uk/api/index/r/?limit=1`
+			);
+			const count = api.data.count;
 
-			// api = await axios.get(
-			// 	`https://latinwordnet.exeter.ac.uk/api/index/r/?limit=1&offset=${Math.ceil(
-			// 		Math.random() * count
-			// 	)}`
-			// );
-
-			// // const name = await handleAPIRequest(api.error, api.status, api.data);
-			// const name = api.data.results[0].lemma;
-
-			// project.name = name
-			// 	?.toLowerCase()
-			// 	?.replaceAll('\r', '')
-			// 	?.replaceAll('\n', '')
-			// 	?.replaceAll(' ', '')
-			// 	?.slice(0, 6);
-			const api = await axios.get(
-				'https://random-word-api.herokuapp.com/word?length=6'
+			api = await axios.get(
+				`https://latinwordnet.exeter.ac.uk/api/index/r/?limit=1&offset=${Math.ceil(
+					Math.random() * count
+				)}`
 			);
 
-			project.name = api.data[0];
+			// const name = await handleAPIRequest(api.error, api.status, api.data);
+			const name = api.data.results[0].lemma;
+
+			project.name = name
+				?.toLowerCase()
+				?.replaceAll('\r', '')
+				?.replaceAll('\n', '')
+				?.replaceAll(' ', '')
+				?.slice(0, 6);
+			// const api = await axios.get(
+			// 	'https://random-word-api.herokuapp.com/word?length=6'
+			// );
+
+			// project.name = api.data[0];
 		}
 
 		console.log(chalk.greenBright('Creating a new project\n'));
