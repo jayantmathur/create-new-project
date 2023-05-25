@@ -6,8 +6,7 @@
       "react-icons",
       "react-hook-form"
     ],
-    "devDependencies": ["tailwindcss", "postcss", "autoprefixer"],
-    "postinstall": "npx tailwindcss init -p && robocopy > nul ..\\..\\resources\\web\\tailwind .\\ /e & echo Done",
+    "postinstall": "robocopy > nul ..\\..\\resources\\web\\tailwind .\\ /e & echo Done",
     "scripts": {}
   },
   "auth": {
