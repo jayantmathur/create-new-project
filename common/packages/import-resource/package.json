@@ -6,6 +6,6 @@
   "private": true,
   "devDependencies": {
     "yargs": "latest",
-    "fs-extra": "^11.1.0"
+    "fs-extra": "latest"
   }
 }

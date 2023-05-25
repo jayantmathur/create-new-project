@@ -6,6 +6,6 @@
   "private": true,
   "devDependencies": {
     "yargs": "latest",
-    "deepmerge": "^4.2.2"
+    "deepmerge": "latest"
   }
 }
