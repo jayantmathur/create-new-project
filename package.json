@@ -1,7 +1,7 @@
 {
 	"name": "create-new-project",
 	"description": "Custom CLI to create a new project repository",
-	"version": "1.4.3",
+	"version": "1.4.4",
 	"license": "UNLICENSED",
 	"type": "module",
 	"bin": {
