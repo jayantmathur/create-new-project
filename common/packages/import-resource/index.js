@@ -58,7 +58,11 @@ const findDirectory = (name, type) => {
     return;
   }
 
-  copySync(findDirectory(src, "resource"), findDirectory(dest, "workspace"), {
-    overwrite: true | false,
-  });
+  copySync(
+    findDirectory(src, "resource"),
+    `${findDirectory(dest, "workspace")}/${src}`,
+    {
+      overwrite: true | false,
+    }
+  );
 })();
