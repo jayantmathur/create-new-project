@@ -82,7 +82,7 @@ const createNewProject = async project => {
 	// 			async () => {
 	// rm(`${project.name}/.git`, { recursive: true, force: true }, () => {});
 
-	execSync(`yarn add -DW turbo prettier`, {
+	execSync(`yarn add -DW turbo prettier concurrently tunnelmole`, {
 		cwd: `${project.name}`
 	});
 
@@ -165,10 +165,6 @@ const createApp = async (project, type) => {
 			cwd: `${project.name}`
 		});
 
-		execSync(`yarn add -D concurrently tunnelmole`, {
-			cwd: `${project.name}/apps/${appName}`
-		});
-
 		await copy(
 			`${__dirname}/repos/apps/repo`,
 			`${project.name}/apps/${appName}`
@@ -231,10 +227,6 @@ const createApp = async (project, type) => {
 
 		execSync(`yarn add -DW prettier-plugin-latex`, {
 			cwd: `${project.name}`
-		});
-
-		execSync(`yarn add -D concurrently tunnelmole`, {
-			cwd: `${project.name}/docs/${appName}`
 		});
 
 		await appendJson(`${project.name}/docs/${appName}/package.json`, {
