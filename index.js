@@ -99,7 +99,7 @@ const createNewProject = async project => {
 			save: './packages/symlink/index.bat',
 			padd: 'node ./packages/padd',
 			'import-resource': 'node ./packages/import-resource',
-			expose: 'ngrok http ',
+			expose: 'node ./packages/expose',
 			update: 'scoop update * & yarn upgrade & yarn install'
 		}
 	});
