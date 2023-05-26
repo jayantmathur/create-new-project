@@ -161,8 +161,12 @@ const createApp = async (project, type) => {
 			}
 		);
 
-		execSync(`yarn add -DW prettier-plugin-tailwindcss`, {
+		execSync(`yarn add -DW typesync prettier-plugin-tailwindcss`, {
 			cwd: `${project.name}`
+		});
+
+		execSync(`yarn add -D concurrently`, {
+			cwd: `${project.name}/apps/${appName}`
 		});
 
 		await copy(
@@ -192,10 +196,6 @@ const createApp = async (project, type) => {
 			}
 		});
 
-		execSync(`yarn add -DW typesync`, {
-			cwd: `${project.name}`
-		});
-
 		await appendJson(`${project.name}/package.json`, {
 			scripts: {
 				deploy: 'turbo run --no-daemon deploy',
@@ -208,8 +208,8 @@ const createApp = async (project, type) => {
 		await appendJson(`${project.name}/apps/${appName}/package.json`, {
 			name: appName,
 			scripts: {
-				predev: 'ipconfig | findstr /i ipv4',
-				dev: `next dev --port ${port} --turbo`,
+				dev: `concurrently -k "yarn nxt:dev" "yarn tmole ${port}"`,
+				'nxt:dev': `next dev --port ${port} --turbo`,
 				push: 'yarn version',
 				deploy: 'echo Vercel package not installed for app deployment! Install Vercel first...'
 			}
@@ -233,11 +233,15 @@ const createApp = async (project, type) => {
 			cwd: `${project.name}`
 		});
 
+		execSync(`yarn add -D concurrently`, {
+			cwd: `${project.name}/docs/${appName}`
+		});
+
 		await appendJson(`${project.name}/docs/${appName}/package.json`, {
 			name: appName,
 			scripts: {
-				predev: 'ipconfig | findstr /i ipv4',
-				dev: `quarto preview index.qmd --port ${port}`,
+				dev: `concurrently -k "yarn quarto:dev" "yarn tmole ${port}"`,
+				'quarto:dev': `quarto preview index.qmd --port ${port}`,
 				build: `quarto render index.qmd`,
 				activate:
 					'conda activate base && jupyter notebook --port 8000 --no-browser',
