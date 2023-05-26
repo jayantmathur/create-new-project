@@ -1,53 +1,45 @@
 {
-  "webui": {
+  "web-ui": {
     "dependencies": [
       "daisyui",
       "react-spring",
       "react-icons",
       "react-hook-form"
     ],
-    "postinstall": "robocopy > nul ..\\..\\resources\\web\\tailwind .\\ /e & echo Done",
-    "scripts": {}
-  },
-  "auth": {
-    "dependencies": ["next-auth"],
-    "devDependencies": [],
+    "resources": [{ "src": "web/tailwind", "dest": "" }],
     "postinstall": "",
     "scripts": {}
   },
-  "database": {
+  "auth-and-data": {
     "dependencies": [
       "@supabase/supabase-js",
       "@prisma/client",
       "react-hook-form"
     ],
     "devDependencies": ["supabase", "prisma", "encoding"],
-    "postinstall": "robocopy > nul ..\\..\\resources\\web\\supabase .\\supabase /e & echo Done",
+    "resources": [{ "src": "web/supabase", "dest": "supabase" }],
+    "postinstall": "",
     "scripts": {
       "update-supatypes": "supabase gen types typescript --schema public > supabase/types.ts"
     }
   },
-  "redux": {
-    "dependencies": ["react-redux", "@reduxjs/toolkit"],
-    "devDependencies": [],
-    "postinstall": "",
-    "scripts": {}
-  },
-  "appdeploy": {
+  "app-deploy": {
     "dependencies": [
-      "@ducanh2912/next-pwa",
+      "next-pwa",
       "@vercel/analytics",
       "@capacitor/core",
       "@capacitor/android",
       "@capacitor/ios"
     ],
     "devDependencies": ["vercel", "@capacitor/cli"],
+    "resources": [{ "src": "web/capacitor", "dest": "" }],
     "postinstall": "next telemetry disable",
     "scripts": { "deploy": "vercel --prod" }
   },
   "api": {
     "dependencies": ["axios", "swr"],
     "devDependencies": [],
+    "resources": [],
     "postinstall": "",
     "scripts": {}
   },
@@ -61,6 +53,7 @@
       "remark-gfm"
     ],
     "devDependencies": [],
+    "resources": [],
     "postinstall": "",
     "scripts": {}
   },
@@ -79,13 +72,15 @@
       "three-stdlib",
       "three-bvh-csg"
     ],
+    "resources": [],
     "postinstall": "",
     "scripts": {}
   },
   "revealjs": {
     "dependencies": [],
     "devDependencies": ["decktape"],
-    "postinstall": "robocopy > nul ..\\..\\resources\\docs\\quarto\\rjs .\\_extensions\\rjs /e & echo Done",
+    "resources": [{ "src": "docs/quarto/rjs", "dest": "_extensions/rjs" }],
+    "postinstall": "",
     "scripts": {
       "postbuild": "decktape --size 960x720 .\\output\\index.html .\\output\\index.pdf"
     }

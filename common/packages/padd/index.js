@@ -4,6 +4,7 @@ const packages = require("./packageslist.json");
 const { execSync, exec } = require("child_process");
 const { readFileSync, writeFileSync } = require("fs");
 const merge = require("deepmerge");
+const fse = require("fs-extra");
 const args = require("yargs").argv;
 
 const appendJson = async (filename, data) => {
@@ -18,8 +19,10 @@ const appendJson = async (filename, data) => {
 };
 
 (async () => {
-  if (args?.packs && args?.path) {
-    const categories = args?.packs?.split(/\,|\s/);
+  const { packs, path } = args;
+
+  if (packs && path) {
+    const categories = packs?.split(/\,|\s/);
 
     categories?.forEach(async (category) => {
       const depsList = packages[category]["dependencies"]
@@ -29,9 +32,9 @@ const appendJson = async (filename, data) => {
       if (depsList?.length > 1)
         execSync(`yarn add -W ${depsList}`, {
           stdio: "ignore",
-          cwd: `${args?.path}`,
+          cwd: `${path}`,
         });
-      console.log(`Added dependencies [${depsList}] to ${args?.path}`);
+      console.log(`Added dependencies [${depsList}] to ${path}`);
 
       const devDepsList = packages[category]["devDependencies"]
         ?.toString()
@@ -40,15 +43,34 @@ const appendJson = async (filename, data) => {
       if (devDepsList?.length > 1)
         execSync(`yarn add -DW ${devDepsList}`, {
           stdio: "ignore",
-          cwd: `${args?.path}`,
+          cwd: `${path}`,
         });
 
-      console.log(`Added devDependencies [${devDepsList}] to ${args?.path}`);
+      console.log(`Added devDependencies [${devDepsList}] to ${path}`);
+
+      const resourcesList = packages[category]["resources"];
+      if (resourcesList?.length > 0) {
+        resourcesList.forEach((resource) => {
+          try {
+            fse.copySync(
+              `./resources/${resource.src}`,
+              `${path}/${resource.dest}`,
+              {
+                overwrite: true | false,
+              }
+            );
+          } catch (err) {
+            console.error(err);
+          }
+        });
+      }
+
+      console.log(`Added sample resources to ${path}`);
 
       const scriptsList = packages[category]["scripts"];
 
       if (JSON.stringify(scriptsList) !== "{}") {
-        await appendJson(`${args?.path}/package.json`, {
+        await appendJson(`${path}/package.json`, {
           scripts: scriptsList || {},
         });
         console.log(`Added necessary scripts package.json`);
@@ -57,7 +79,7 @@ const appendJson = async (filename, data) => {
       const postinstall = packages[category]["postinstall"];
 
       if (postinstall?.length > 1)
-        exec(`${postinstall}`, { cwd: `${args?.path}` }, (err) => {
+        exec(`${postinstall}`, { cwd: `${path}` }, (err) => {
           if (err) throw err;
           console.log(`Ran postinstall script`);
         });
