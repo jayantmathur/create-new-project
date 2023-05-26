@@ -5,8 +5,8 @@
 	"license": "UNLICENSED",
 	"type": "module",
 	"bin": {
-		"create-new-project": "index.js",
-		"cnpr": "index.js"
+		"cnpr": "index.js",
+		"create-new-project": "index.js"
 	},
 	"author": {
 		"name": "Jayant Mathur",
@@ -55,5 +55,6 @@
 		"@types/prettier": "^2.7.2",
 		"prettier": "^2.8.3",
 		"typesync": "^0.11.1"
-	}
+	},
+	"packageManager": "yarn@3.5.1"
 }
