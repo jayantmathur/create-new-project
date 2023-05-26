@@ -82,7 +82,7 @@ const createNewProject = async project => {
 	// 			async () => {
 	// rm(`${project.name}/.git`, { recursive: true, force: true }, () => {});
 
-	execSync(`yarn add -DW turbo prettier concurrently`, {
+	execSync(`yarn add -DW turbo prettier`, {
 		cwd: `${project.name}`
 	});
 
@@ -204,8 +204,7 @@ const createApp = async (project, type) => {
 		await appendJson(`${project.name}/apps/${appName}/package.json`, {
 			name: appName,
 			scripts: {
-				dev: `concurrently -k "yarn nxt:dev" "ngrok http ${port}"`,
-				'nxt:dev': `next dev --port ${port} --turbo`,
+				dev: `next dev --port ${port} --turbo`,
 				push: 'yarn version',
 				deploy: 'echo Vercel package not installed for app deployment! Install Vercel first...'
 			}
@@ -232,8 +231,7 @@ const createApp = async (project, type) => {
 		await appendJson(`${project.name}/docs/${appName}/package.json`, {
 			name: appName,
 			scripts: {
-				dev: `concurrently -k "yarn quarto:dev" "ngrok http ${port}"`,
-				'quarto:dev': `quarto preview index.qmd --port ${port}`,
+				dev: `quarto preview index.qmd --port ${port}`,
 				build: `quarto render index.qmd`,
 				activate:
 					'conda activate base && jupyter notebook --port 8000 --no-browser',
