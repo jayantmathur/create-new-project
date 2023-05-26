@@ -165,7 +165,7 @@ const createApp = async (project, type) => {
 			cwd: `${project.name}`
 		});
 
-		execSync(`yarn add -D concurrently`, {
+		execSync(`yarn add -D concurrently tunnelmole`, {
 			cwd: `${project.name}/apps/${appName}`
 		});
 
@@ -233,7 +233,7 @@ const createApp = async (project, type) => {
 			cwd: `${project.name}`
 		});
 
-		execSync(`yarn add -D concurrently`, {
+		execSync(`yarn add -D concurrently tunnelmole`, {
 			cwd: `${project.name}/docs/${appName}`
 		});
 
