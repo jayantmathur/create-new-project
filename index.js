@@ -99,7 +99,6 @@ const createNewProject = async project => {
 			save: './packages/symlink/index.bat',
 			padd: 'node ./packages/padd',
 			'import-resource': 'node ./packages/import-resource',
-			tunnel: './packages/bore.exe',
 			update: 'scoop update * & yarn upgrade & yarn install'
 		}
 	});
@@ -205,7 +204,7 @@ const createApp = async (project, type) => {
 		await appendJson(`${project.name}/apps/${appName}/package.json`, {
 			name: appName,
 			scripts: {
-				dev: `concurrently -k "yarn nxt:dev" "yarn tunnel local ${port} --to bore.pub"`,
+				dev: `concurrently -k "yarn nxt:dev" "ngrok http ${port}"`,
 				'nxt:dev': `next dev --port ${port} --turbo`,
 				push: 'yarn version',
 				deploy: 'echo Vercel package not installed for app deployment! Install Vercel first...'
@@ -233,7 +232,7 @@ const createApp = async (project, type) => {
 		await appendJson(`${project.name}/docs/${appName}/package.json`, {
 			name: appName,
 			scripts: {
-				dev: `concurrently -k "yarn quarto:dev" "yarn tunnel local ${port} --to bore.pub"`,
+				dev: `concurrently -k "yarn quarto:dev" "ngrok http ${port}"`,
 				'quarto:dev': `quarto preview index.qmd --port ${port}`,
 				build: `quarto render index.qmd`,
 				activate:
