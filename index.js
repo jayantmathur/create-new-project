@@ -197,8 +197,7 @@ const createApp = async (project, type) => {
 			scripts: {
 				deploy: 'turbo run --no-daemon deploy',
 				preinstall: 'yarn typesync & echo Done!',
-				'create-index': 'node ./packages/create-index',
-				svgr: './packages/runsvgr'
+				'create-index': 'node ./packages/create-index'
 			}
 		});
 
