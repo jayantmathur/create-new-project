@@ -58,15 +58,18 @@
     "scripts": {}
   },
   "three": {
-    "dependencies": ["r3f-perf"],
-    "devDependencies": [
-      "@react-three/cannon",
+    "dependencies": [
+      "@react-three/rapier",
       "@react-three/drei",
       "@react-three/fiber",
-      "@react-three/postprocessing",
       "@react-three/xr",
+      "r3f-perf"
+    ],
+    "devDependencies": [],
+    "extras?": [
       "@react-three/flex",
       "@react-three/csg",
+      "@react-three/postprocessing",
       "@types/three",
       "three",
       "three-stdlib",
