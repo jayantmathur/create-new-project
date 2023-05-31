@@ -235,8 +235,6 @@ const createApp = async (project, type) => {
 			scripts: {
 				dev: `quarto preview index.qmd --port ${port}`,
 				build: `quarto render index.qmd`,
-				activate:
-					'conda activate base && jupyter notebook --port 8000 --no-browser',
 				push: 'yarn version'
 			}
 		});
