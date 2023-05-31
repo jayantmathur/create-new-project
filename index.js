@@ -92,7 +92,7 @@ const createNewProject = async project => {
 		// workspaces: ['docs/*'],
 		scripts: {
 			prepush: 'yarn format',
-			push: 'turbo run --no-daemon push -- ',
+			push: 'turbo run --no-daemon push --',
 			postpush: 'yarn save',
 			build: 'turbo run --no-daemon build',
 			postbuild: 'yarn push --major',
