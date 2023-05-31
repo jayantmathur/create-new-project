@@ -1,7 +1,14 @@
 import time
 import os
 import shutil
+import argparse
 
+parser = argparse.ArgumentParser()
+
+# -db DATABSE -u USERNAME -p PASSWORD -size 20
+parser.add_argument("-i", "--name", help="New File Name", default="")
+
+args = parser.parse_args()
 
 # Get the path of the file
 filepath = "./output/index.pdf"
@@ -11,7 +18,12 @@ timestamp = time.strftime("%m%d", time.strptime(time.ctime(os.path.getctime(file
 
 # Copy the file
 
+if args.name != "":
+    outputfile = str(args.name)
+else:
+    outputfile = "ver" + timestamp
+
 shutil.copyfile(
     filepath,
-    os.path.split(filepath)[0] + "/ver" + timestamp + os.path.splitext(filepath)[1],
+    os.path.split(filepath)[0] + "/" + outputfile + os.path.splitext(filepath)[1],
 )
