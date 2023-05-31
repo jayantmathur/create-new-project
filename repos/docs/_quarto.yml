@@ -1,5 +1,6 @@
 project:
   output-dir: output
+  post-render: [_rename.py]
 
 bibliography: [references.json]
 
