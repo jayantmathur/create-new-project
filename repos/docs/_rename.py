@@ -1,6 +1,5 @@
 import time
 import os
-import shutil
 
 # Get the path of the file
 filepath = "./output/index.pdf"
@@ -15,8 +14,8 @@ timestamp = time.strftime(
     )
 )
 
-# Copy and rename the file
-shutil.copy(
+# Rename the file
+os.rename(
     filepath, 
     os.path.split(filepath)[0] + "/ver" + timestamp + os.path.split(filepath)[1]
 )
