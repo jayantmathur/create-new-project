@@ -17,5 +17,5 @@ timestamp = time.strftime(
 # Rename the file
 os.rename(
     filepath, 
-    os.path.split(filepath)[0] + "/ver" + timestamp + os.path.split(filepath)[1]
+    os.path.split(filepath)[0] + "/ver" + timestamp + os.path.splitext(filepath)[1]
 )
