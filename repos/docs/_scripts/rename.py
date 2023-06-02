@@ -19,11 +19,10 @@ timestamp = time.strftime("%m%d", time.strptime(time.ctime(os.path.getctime(file
 # Copy the file
 
 if args.name != "":
-    outputfile = str(args.name)
-else:
-    outputfile = "ver" + timestamp
-
-shutil.copyfile(
-    filepath,
-    os.path.split(filepath)[0] + "/" + outputfile + os.path.splitext(filepath)[1],
-)
+    shutil.copyfile(
+        filepath,
+        os.path.split(filepath)[0]
+        + "/"
+        + str(args.name)
+        + os.path.splitext(filepath)[1],
+    )

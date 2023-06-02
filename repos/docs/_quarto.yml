@@ -6,6 +6,7 @@ bibliography: [references.json]
 
 filters:
   - latex-environment
+  - _scripts/filters.lua
 
 commands: [hl]
 

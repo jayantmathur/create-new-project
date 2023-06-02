@@ -45,12 +45,8 @@ contributes:
 
             include-in-header: 'partials/_header.tex'
 
-            filters:
-                - handlesvgs.lua
-
             format-resources:
                 - public/
-                - handlesvgs.lua
 
             knitr:
                 opts_chunk:

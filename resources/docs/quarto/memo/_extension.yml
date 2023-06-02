@@ -36,12 +36,6 @@ contributes:
 
             include-in-header: 'partials/_header.tex'
 
-            filters:
-                - handlesvgs.lua
-
-            format-resources:
-                - handlesvgs.lua
-
             knitr:
                 opts_chunk:
                     dev: pdf
