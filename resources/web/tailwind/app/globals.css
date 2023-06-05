@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+	min-height: 100vh;
+}
+
 /* Sample re-usable class but not recommended. Use wrapper instead?*/
 /* @layer base {
 	.screen-fill-center {

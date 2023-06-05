@@ -26,9 +26,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="flex h-screen flex-col items-center justify-center p-2 bg-neutral-800 text-gray-200">
-				{children}
-			</body>
+			<body className="bg-neutral-800 text-gray-200">{children}</body>
 		</html>
 	);
 }
