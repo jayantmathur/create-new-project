@@ -10,6 +10,12 @@ body {
 	min-height: 100vh;
 }
 
+@layer base {
+	.fill-center {
+		@apply flex items-center justify-center h-full w-full;
+	}
+}
+
 /* Sample re-usable class but not recommended. Use wrapper instead?*/
 /* @layer base {
 	.screen-fill-center {
