@@ -63,16 +63,16 @@
       "@react-three/drei",
       "@react-three/fiber",
       "@react-three/xr",
-      "r3f-perf"
+      "r3f-perf",
+      "@types/three",
+      "three",
+      "three-stdlib"
     ],
     "devDependencies": [],
     "extras?": [
       "@react-three/flex",
       "@react-three/csg",
       "@react-three/postprocessing",
-      "@types/three",
-      "three",
-      "three-stdlib",
       "three-bvh-csg"
     ],
     "resources": [],
