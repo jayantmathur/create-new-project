@@ -3,6 +3,7 @@
     "dependencies": [
       "daisyui",
       "react-spring",
+      "framer-motion",
       "react-icons",
       "react-hook-form"
     ],
