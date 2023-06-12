@@ -4,6 +4,7 @@
       "daisyui",
       "react-spring",
       "framer-motion",
+      "react-dropzone",
       "react-icons",
       "react-hook-form"
     ],
