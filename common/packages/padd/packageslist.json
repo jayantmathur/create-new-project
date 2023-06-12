@@ -32,10 +32,13 @@
       "@capacitor/android",
       "@capacitor/ios"
     ],
-    "devDependencies": ["vercel", "@capacitor/cli"],
+    "devDependencies": ["vercel", "@capacitor/cli", "@tauri-apps/cli"],
     "resources": [{ "src": "web/capacitor", "dest": "" }],
     "postinstall": "next telemetry disable",
-    "scripts": { "deploy": "vercel --prod" }
+    "scripts": {
+      "deploy": "vercel --prod",
+      "taurize": "yarn tauri init --ci && yarn tauri build && yarn tauri dev"
+    }
   },
   "api": {
     "dependencies": ["axios", "swr"],
