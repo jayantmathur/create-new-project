@@ -1,2 +1,5 @@
 _extensions
 resources
+src-tauri
+node_modules
+.*
