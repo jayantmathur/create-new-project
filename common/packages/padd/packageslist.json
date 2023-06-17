@@ -33,12 +33,17 @@
       "@capacitor/android",
       "@capacitor/ios"
     ],
-    "devDependencies": ["vercel", "@capacitor/cli", "@tauri-apps/cli"],
+    "devDependencies": [
+      "vercel",
+      "@capacitor/cli",
+      "@capacitor/assets",
+      "@tauri-apps/cli"
+    ],
     "resources": [{ "src": "web/capacitor", "dest": "" }],
-    "postinstall": "next telemetry disable",
+    "postinstall": "next telemetry disable & yarn @capacitor/assets generate --assetPath public --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#191919' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#191919'",
     "scripts": {
       "deploy": "vercel --prod",
-      "taurize": "yarn tauri init --ci && yarn tauri build && yarn tauri dev"
+      "taurize": "yarn tauri init && yarn tauri icon .\\public\\icons\\icon.ico && yarn tauri build"
     }
   },
   "api": {

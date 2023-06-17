@@ -25,8 +25,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body className="bg-neutral-800 text-gray-200">{children}</body>
+		<html className={`bg-neutral-800 text-slate-200`}>
+			<body className="fill-center h-[100dvh]">{children}</body>
 		</html>
 	);
 }
