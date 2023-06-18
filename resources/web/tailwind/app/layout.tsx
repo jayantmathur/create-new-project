@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 	themeColor: '#FFFFFF',
 	viewport:
 		'minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover',
-	manifest: '/manifest.json',
+	manifest: '/manifest.webmanifest',
 	icons: [{ rel: 'shortcut icon', url: '/favicon.ico' }],
 	keywords: ['Next.js', 'Tailwind CSS', 'TypeScript']
 };

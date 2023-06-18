@@ -9,14 +9,14 @@
       "react-hook-form"
     ],
     "resources": [{ "src": "web/tailwind", "dest": "" }],
-    "postinstall": "",
+    "postinstalls": "",
     "scripts": {}
   },
   "client-auth": {
     "dependencies": ["@supabase/supabase-js", "@prisma/client"],
     "devDependencies": ["supabase", "prisma", "encoding"],
     "resources": [{ "src": "web/supabase", "dest": "supabase" }],
-    "postinstall": "",
+    "postinstalls": "",
     "scripts": {
       "update-supatypes": "supabase gen types typescript --schema public > supabase/types.ts"
     }
@@ -36,17 +36,24 @@
       "@tauri-apps/cli"
     ],
     "resources": [{ "src": "web/capacitor", "dest": "" }],
-    "postinstall": "next telemetry disable & yarn @capacitor/assets generate --assetPath public --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#191919' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#191919'",
+    "postinstalls": [
+      "next telemetry disable",
+      "npx cap init && npx cap add android && npx cap add ios && npx cap sync",
+      "npx icon-gen --input public/icon.svg --output public --favicon --favicon-png-sizes 1024",
+      "yarn @capacitor/assets generate --assetPath public --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#191919' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#191919'",
+      "npx icon-gen --input public/icon.svg --output icons --ico --ico-name icon --icns --icns-name icon",
+      "yarn tauri init && yarn tauri icon icons/icon.ico"
+    ],
     "scripts": {
       "deploy": "vercel --prod",
-      "taurize": "yarn tauri init && yarn tauri icon .\\public\\icons\\icon.ico && yarn tauri build"
+      "taurize": "yarn tauri build"
     }
   },
   "api": {
     "dependencies": ["axios", "swr"],
     "devDependencies": [],
     "resources": [],
-    "postinstall": "",
+    "postinstalls": "",
     "scripts": {}
   },
   "mdx": {
@@ -60,7 +67,7 @@
     ],
     "devDependencies": [],
     "resources": [],
-    "postinstall": "",
+    "postinstalls": "",
     "scripts": {}
   },
   "three": {
@@ -82,14 +89,14 @@
       "three-bvh-csg"
     ],
     "resources": [],
-    "postinstall": "",
+    "postinstalls": "",
     "scripts": {}
   },
   "revealjs": {
     "dependencies": [],
     "devDependencies": ["decktape"],
     "resources": [{ "src": "docs/quarto/rjs", "dest": "_extensions/rjs" }],
-    "postinstall": "",
+    "postinstalls": "",
     "scripts": {
       "postbuild": "decktape --size 960x720 .\\output\\index.html .\\output\\index.pdf"
     }

@@ -76,13 +76,15 @@ const appendJson = async (filename, data) => {
         console.log(`Added necessary scripts package.json`);
       }
 
-      const postinstall = packages[category]["postinstall"];
+      const postinstall = packages[category]["postinstalls"];
 
-      if (postinstall?.length > 1)
-        exec(`${postinstall}`, { cwd: `${path}` }, (err) => {
-          if (err) throw err;
-          console.log(`Ran postinstall script`);
-        });
+      if (postinstall?.length > 0)
+        postinstall.forEach((element, index) =>
+          exec(`${element}`, { cwd: `${path}` }, (err) => {
+            if (err) throw err;
+            console.log(`Ran postinstall script ${index + 1}`);
+          })
+        );
     });
   }
 })();
