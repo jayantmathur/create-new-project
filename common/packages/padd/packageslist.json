@@ -12,7 +12,14 @@
     "postinstalls": "",
     "scripts": {}
   },
-  "client-auth": {
+  "auth": {
+    "dependencies": ["next-auth"],
+    "devDependencies": [],
+    "resources": [],
+    "postinstalls": "",
+    "scripts": {}
+  },
+  "database": {
     "dependencies": ["@supabase/supabase-js", "@prisma/client"],
     "devDependencies": ["supabase", "prisma", "encoding"],
     "resources": [{ "src": "web/supabase", "dest": "supabase" }],
@@ -21,23 +28,27 @@
       "update-supatypes": "supabase gen types typescript --schema public > supabase/types.ts"
     }
   },
-  "app-deploy": {
-    "dependencies": [
-      "next-pwa",
-      "@vercel/analytics",
-      "@capacitor/core",
-      "@capacitor/android",
-      "@capacitor/ios"
+  "pwa": {
+    "dependencies": ["next-pwa", "@vercel/analytics"],
+    "devDependencies": ["vercel"],
+    "resources": [],
+    "postinstalls": [
+      "next telemetry disable",
+      "npx icon-gen --input public/icon.svg --output public --favicon --favicon-png-sizes 1024"
     ],
+    "scripts": {
+      "deploy": "vercel --prod"
+    }
+  },
+  "static-app": {
+    "dependencies": ["@capacitor/core", "@capacitor/android", "@capacitor/ios"],
     "devDependencies": [
-      "vercel",
       "@capacitor/cli",
       "@capacitor/assets",
       "@tauri-apps/cli"
     ],
     "resources": [{ "src": "web/capacitor", "dest": "" }],
     "postinstalls": [
-      "next telemetry disable",
       "npx cap init && npx cap add android && npx cap add ios && npx cap sync",
       "npx icon-gen --input public/icon.svg --output public --favicon --favicon-png-sizes 1024",
       "yarn @capacitor/assets generate --assetPath public --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#191919' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#191919'",
@@ -45,7 +56,6 @@
       "yarn tauri init && yarn tauri icon icons/icon.ico"
     ],
     "scripts": {
-      "deploy": "vercel --prod",
       "taurize": "yarn tauri build"
     }
   },
