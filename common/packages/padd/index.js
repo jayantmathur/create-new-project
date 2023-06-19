@@ -29,24 +29,26 @@ const appendJson = async (filename, data) => {
         ?.toString()
         .replaceAll(",", " ");
 
-      if (depsList?.length > 1)
+      if (depsList?.length > 1) {
         execSync(`yarn add -W ${depsList}`, {
           stdio: "ignore",
           cwd: `${path}`,
         });
-      console.log(`Added dependencies [${depsList}] to ${path}`);
+        console.log(`Added dependencies [${depsList}] to ${path}`);
+      }
 
       const devDepsList = packages[category]["devDependencies"]
         ?.toString()
         .replaceAll(",", " ");
 
-      if (devDepsList?.length > 1)
+      if (devDepsList?.length > 1) {
         execSync(`yarn add -DW ${devDepsList}`, {
           stdio: "ignore",
           cwd: `${path}`,
         });
 
-      console.log(`Added devDependencies [${devDepsList}] to ${path}`);
+        console.log(`Added devDependencies [${devDepsList}] to ${path}`);
+      }
 
       const resourcesList = packages[category]["resources"];
       if (resourcesList?.length > 0) {
@@ -54,18 +56,18 @@ const appendJson = async (filename, data) => {
           try {
             fse.copySync(
               `./resources/${resource.src}`,
-              `${path}/${resource.dest}`,
+              `${path}/${resource.dest || ""}`,
               {
                 overwrite: true | false,
               }
             );
+
+            console.log(`Added sample resources to ${path}`);
           } catch (err) {
             console.error(err);
           }
         });
       }
-
-      console.log(`Added sample resources to ${path}`);
 
       const scriptsList = packages[category]["scripts"];
 
