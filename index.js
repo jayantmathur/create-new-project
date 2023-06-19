@@ -172,6 +172,18 @@ const createApp = async (project, type) => {
 			`${project.name}/apps/${appName}`
 		);
 
+		exec(
+			`npx icon-gen --input ${project.name}/apps/${appName}/public/icon.svg --output ${project.name}/apps/${appName}/public --favicon --favicon-png-sizes 1024`,
+			() => {
+				copy(
+					`${project.name}/apps/${appName}/public/favicon.ico`,
+					`${project.name}/apps/${appName}/app/favicon.ico`
+				);
+
+				console.log('Generated favicons');
+			}
+		);
+
 		await appendJson(
 			`${project.name}/apps/${appName}/public/manifest.webmanifest`,
 			{
