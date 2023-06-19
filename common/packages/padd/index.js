@@ -50,6 +50,23 @@ const appendJson = async (filename, data) => {
         console.log(`Added devDependencies [${devDepsList}] to ${path}`);
       }
 
+      const scriptsList = packages[category]["scripts"];
+
+      if (scriptsList && JSON.stringify(scriptsList) !== "{}") {
+        await appendJson(`${path}/package.json`, {
+          scripts: scriptsList || {},
+        });
+        console.log(`Added necessary scripts package.json`);
+      }
+
+      const postinstall = packages[category]["postinstalls"];
+
+      if (postinstall?.length > 0)
+        postinstall.forEach((element, index) => {
+          execSync(`${element}`, { cwd: `${path}`, stdio: "inherit" });
+          console.log(`Ran postinstall script ${index + 1}`);
+        });
+
       const resourcesList = packages[category]["resources"];
       if (resourcesList?.length > 0) {
         resourcesList.forEach((resource) => {
@@ -68,25 +85,6 @@ const appendJson = async (filename, data) => {
           }
         });
       }
-
-      const scriptsList = packages[category]["scripts"];
-
-      if (scriptsList && JSON.stringify(scriptsList) !== "{}") {
-        await appendJson(`${path}/package.json`, {
-          scripts: scriptsList || {},
-        });
-        console.log(`Added necessary scripts package.json`);
-      }
-
-      const postinstall = packages[category]["postinstalls"];
-
-      if (postinstall?.length > 0)
-        postinstall.forEach((element, index) =>
-          exec(`${element}`, { cwd: `${path}` }, (err) => {
-            if (err) throw err;
-            console.log(`Ran postinstall script ${index + 1}`);
-          })
-        );
     });
   }
 })();
