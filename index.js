@@ -168,12 +168,12 @@ const createApp = async (project, type) => {
 		});
 
 		await copy(
-			`${__dirname}/repos/apps/repo`,
+			`${__dirname}/templates/apps`,
 			`${project.name}/apps/${appName}`
 		);
 
 		await appendJson(
-			`${project.name}/apps/${appName}/public/manifest.json`,
+			`${project.name}/apps/${appName}/public/manifest.webmanifest`,
 			{
 				name: `${project.name} app: ${appName}`,
 				short_name: appName
@@ -221,7 +221,7 @@ const createApp = async (project, type) => {
 			mkdirSync(`${project.name}/docs`);
 
 		await copy(
-			`${__dirname}/repos/docs`,
+			`${__dirname}/templates/docs`,
 			`${project.name}/docs/${appName}`
 		);
 
@@ -263,12 +263,6 @@ const createApp = async (project, type) => {
 
 		console.log('Imported quarto template extension\n');
 	}
-
-	await copy(
-		`${__dirname}/public`,
-		`${project.name}/${type}s/${appName}/public`
-	);
-	console.log('Copied over personal public directory\n');
 
 	await sleep(1000);
 };

@@ -33,23 +33,27 @@
       "deploy": "vercel --prod"
     }
   },
-  "capacitor": {
-    "dependencies": [
-      "@capacitor/core",
-      "@capacitor/android",
-      "@capacitor/ios",
-      "@capacitor-community/electron",
-      "@capacitor-community/tauri@latest"
-    ],
+  "mobile": {
+    "dependencies": ["@capacitor/core", "@capacitor/android", "@capacitor/ios"],
     "devDependencies": ["@capacitor/cli"],
     "resources": [{ "src": "web/capacitor" }],
     "postinstalls": [
-      "npx cap init && npx cap add android && npx cap add ios && npx cap add @capacitor-community/electron && npx cap add @capacitor-community/tauri && npx cap sync",
-      "npx icon-gen --input public/icon.svg --output public --favicon --favicon-png-sizes 1024",
+      "npx icon-gen --input public/icon.svg --output icons --favicon --favicon-png-sizes 1024",
+      "npx cap init && npx cap add ios & npx cap add android & npx cap sync",
       "npx @capacitor/assets generate --assetPath public --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#191919' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#191919'"
     ],
     "scripts": {
-      "dev": "npx cap open android & npx cap open ios & npx cap open @capacitor-community/tauri & npx cap open @capacitor-community/electron"
+      "android": "npx cap open android"
+    }
+  },
+  "tauri": {
+    "devDependencies": ["@tauri-apps/cli"],
+    "postinstalls": [
+      "npx icon-gen --input public/icon.svg --output icons --favicon --favicon-png-sizes 1024",
+      "yarn tauri init && yarn tauri icon .\\icons\\icon.ico"
+    ],
+    "scripts": {
+      "taurize": "npx tauri dev"
     }
   },
   "api": {

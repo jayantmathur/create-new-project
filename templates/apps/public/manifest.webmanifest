@@ -1,0 +1,11 @@
+{
+	"name": "PWA App",
+	"short_name": "App",
+	"description": "The Progressive Web App for this application",
+	"id": "/",
+	"scope": "/",
+	"start_url": "/",
+	"display": "standalone",
+	"orientation": "portrait",
+	"icons": []
+}
