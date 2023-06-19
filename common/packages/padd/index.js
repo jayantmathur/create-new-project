@@ -69,7 +69,7 @@ const appendJson = async (filename, data) => {
 
       const scriptsList = packages[category]["scripts"];
 
-      if (JSON.stringify(scriptsList) !== "{}") {
+      if (scriptsList && JSON.stringify(scriptsList) !== "{}") {
         await appendJson(`${path}/package.json`, {
           scripts: scriptsList || {},
         });

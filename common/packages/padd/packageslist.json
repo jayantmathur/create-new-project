@@ -8,22 +8,15 @@
       "react-icons",
       "react-hook-form"
     ],
-    "resources": [{ "src": "web/tailwind", "dest": "" }],
-    "postinstalls": "",
-    "scripts": {}
+    "resources": [{ "src": "web/tailwind" }]
   },
   "auth": {
-    "dependencies": ["next-auth"],
-    "devDependencies": [],
-    "resources": [],
-    "postinstalls": "",
-    "scripts": {}
+    "dependencies": ["next-auth"]
   },
   "database": {
     "dependencies": ["@supabase/supabase-js", "@prisma/client"],
     "devDependencies": ["supabase", "prisma", "encoding"],
     "resources": [{ "src": "web/supabase", "dest": "supabase" }],
-    "postinstalls": "",
     "scripts": {
       "update-supatypes": "supabase gen types typescript --schema public > supabase/types.ts"
     }
@@ -60,11 +53,7 @@
     }
   },
   "api": {
-    "dependencies": ["axios", "swr"],
-    "devDependencies": [],
-    "resources": [],
-    "postinstalls": "",
-    "scripts": {}
+    "dependencies": ["axios", "swr"]
   },
   "mdx": {
     "dependencies": [
@@ -74,11 +63,7 @@
       "next-mdx-remote",
       "gray-matter",
       "remark-gfm"
-    ],
-    "devDependencies": [],
-    "resources": [],
-    "postinstalls": "",
-    "scripts": {}
+    ]
   },
   "three": {
     "dependencies": [
@@ -97,16 +82,11 @@
       "@react-three/csg",
       "@react-three/postprocessing",
       "three-bvh-csg"
-    ],
-    "resources": [],
-    "postinstalls": "",
-    "scripts": {}
+    ]
   },
   "revealjs": {
-    "dependencies": [],
     "devDependencies": ["decktape"],
     "resources": [{ "src": "docs/quarto/rjs", "dest": "_extensions/rjs" }],
-    "postinstalls": "",
     "scripts": {
       "postbuild": "decktape --size 960x720 .\\output\\index.html .\\output\\index.pdf"
     }
