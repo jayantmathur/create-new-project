@@ -27,7 +27,7 @@
     "resources": [],
     "postinstalls": [
       "next telemetry disable",
-      "npx icon-gen --input public/icon.svg --output public --favicon --favicon-png-sizes 1024"
+      "npx icon-gen --input public/icon.svg --output icons --favicon --favicon-png-sizes 16,32,64"
     ],
     "scripts": {
       "deploy": "vercel --prod"
@@ -38,8 +38,8 @@
     "devDependencies": ["@capacitor/cli"],
     "resources": [{ "src": "web/capacitor" }],
     "postinstalls": [
-      "npx icon-gen --input public/icon.svg --output icons --favicon --favicon-png-sizes 1024",
-      "npx cap init && npx cap add ios & npx cap add android & npx cap sync",
+      "npx icon-gen --input public/icon.svg --output icons --ico --ico-name icon --icns --icns-name icon --favicon --favicon-png-sizes 16,32,64",
+      "npx cap init --appId com.example.app --appName Example --webDir out && npx cap add ios & npx cap add android & npx cap sync",
       "npx @capacitor/assets generate --assetPath public --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#191919' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#191919'"
     ],
     "scripts": {
@@ -49,11 +49,11 @@
   "tauri": {
     "devDependencies": ["@tauri-apps/cli"],
     "postinstalls": [
-      "npx icon-gen --input public/icon.svg --output icons --favicon --favicon-png-sizes 1024",
-      "yarn tauri init && yarn tauri icon .\\icons\\icon.ico"
+      "npx icon-gen --input public/icon.svg --output icons --ico --ico-name icon --icns --icns-name icon --favicon --favicon-png-sizes 16,32,64",
+      "npx tauri init && npx tauri icon .\\icons\\icon.ico"
     ],
     "scripts": {
-      "taurize": "npx tauri dev"
+      "taurize": "yarn tauri build"
     }
   },
   "api": {
