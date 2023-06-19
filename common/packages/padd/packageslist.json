@@ -40,23 +40,23 @@
       "deploy": "vercel --prod"
     }
   },
-  "static-app": {
-    "dependencies": ["@capacitor/core", "@capacitor/android", "@capacitor/ios"],
-    "devDependencies": [
-      "@capacitor/cli",
-      "@capacitor/assets",
-      "@tauri-apps/cli"
+  "capacitor": {
+    "dependencies": [
+      "@capacitor/core",
+      "@capacitor/android",
+      "@capacitor/ios",
+      "@capacitor-community/electron",
+      "@capacitor-community/tauri@latest"
     ],
+    "devDependencies": ["@capacitor/cli", "@capacitor/assets"],
     "resources": [{ "src": "web/capacitor", "dest": "" }],
     "postinstalls": [
-      "npx cap init && npx cap add android && npx cap add ios && npx cap sync",
+      "npx cap init && npx cap add android && npx cap add ios && npx cap add @capacitor-community/electron && npx cap add @capacitor-community/tauri && npx cap sync",
       "npx icon-gen --input public/icon.svg --output public --favicon --favicon-png-sizes 1024",
-      "yarn @capacitor/assets generate --assetPath public --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#191919' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#191919'",
-      "npx icon-gen --input public/icon.svg --output icons --ico --ico-name icon --icns --icns-name icon",
-      "yarn tauri init && yarn tauri icon icons/icon.ico"
+      "yarn @capacitor/assets generate --assetPath public --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#191919' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#191919'"
     ],
     "scripts": {
-      "taurize": "yarn tauri build"
+      "dev": "npx cap open android & npx cap open ios & npx cap open @capacitor-community/tauri & npx cap open @capacitor-community/electron"
     }
   },
   "api": {
