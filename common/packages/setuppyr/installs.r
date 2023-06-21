@@ -13,4 +13,4 @@ package.check <- function(packages) {
 pkgs <- installed.packages()
 remove.packages(pkgs[, 1])
 
-package.check(c("IRkernel", "languageserver", "rmarkdown"))
+package.check(c("languageserver","rmarkdown","jsonlite","IRkernel"))
