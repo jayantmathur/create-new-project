@@ -47,7 +47,7 @@
     }
   },
   "tauri": {
-    "devDependencies": ["@tauri-apps/cli"],
+    "devDependencies": ["@tauri-apps/cli@next", "@tauri-apps/api@next"],
     "postinstalls": [
       "npx icon-gen --input public/icon.svg --output icons --ico --ico-name icon --icns --icns-name icon --favicon --favicon-png-sizes 16,32,64",
       "npx tauri init && npx tauri icon .\\icons\\icon.ico"
