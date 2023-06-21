@@ -21,8 +21,8 @@
       "update-supatypes": "supabase gen types typescript --schema public > supabase/types.ts"
     }
   },
-  "pwa": {
-    "dependencies": ["next-pwa", "@vercel/analytics"],
+  "vercel": {
+    "dependencies": ["@vercel/analytics"],
     "devDependencies": ["vercel"],
     "resources": [],
     "postinstalls": [

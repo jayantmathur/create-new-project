@@ -7,5 +7,12 @@
 	"start_url": "/",
 	"display": "standalone",
 	"orientation": "portrait",
-	"icons": []
+	"background_color": "#191919",
+	"icons": [
+		{
+			"src": "/favicon-64.png",
+			"sizes": "64x64",
+			"type": "image/png"
+		}
+	]
 }
