@@ -4,13 +4,14 @@ package.check <- function(packages) {
         FUN = function(x) {
             if (!require(x, character.only = TRUE)) {
                 install.packages(x, dependencies = TRUE, repos = "https://cloud.r-project.org")
-                library(x, character.only = TRUE)
             }
         }
     )
 }
 
-pkgs <- installed.packages()
-remove.packages(pkgs[, 1])
+# pkgs <- installed.packages()
+# remove.packages(pkgs[, 1])
 
-package.check(c("languageserver","rmarkdown","jsonlite","IRkernel"))
+package.check(c("languageserver", "rmarkdown", "jsonlite", "IRkernel"))
+
+IRkernel::installspec()
