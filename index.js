@@ -248,8 +248,6 @@ const createApp = async (project, type) => {
 		if (!existsSync(`${project.name}/docs`))
 			mkdirSync(`${project.name}/docs`);
 
-		copy(`${__dirname}/public`, `${project.name}/docs/${appName}/public`);
-
 		await copy(
 			`${__dirname}/templates/docs`,
 			`${project.name}/docs/${appName}`
