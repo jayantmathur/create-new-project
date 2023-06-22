@@ -2,7 +2,9 @@
 
 import { writeFile } from 'fs/promises';
 import icongen from 'icon-gen';
+import { clear } from 'console';
 
+const dir = `${process.cwd()}\\public`;
 const manifest = {
 	name: 'PWA App',
 	short_name: 'App',
@@ -37,24 +39,26 @@ const options = {
 	}
 };
 
-export const generateIcons = async dir => {
-	await icongen(`${dir}\\icons\\icon.svg`, `${dir}\\icons\\`, options)
-		.then(results => {
-			if (results.length === 0) return;
+clear();
 
-			manifest.icons = options.favicon.pngSizes.map(icon => ({
-				src: `icons/favicon-${icon}.png`,
-				sizes: `${icon}x${icon}`,
-				type: 'image/png'
-			}));
-		})
-		.catch(err => {
-			console.error(err);
-		});
+await icongen(`${dir}\\icons\\icon.svg`, `${dir}\\icons\\`, options)
+	.then(results => {
+		if (results.length === 0) return;
 
-	await writeFile(
-		`${dir}\\manifest.webmanifest`,
-		JSON.stringify(manifest, null, 2),
-		err => err && console.log(err)
-	);
-};
+		manifest.icons = options.favicon.pngSizes.map(icon => ({
+			src: `icons/favicon-${icon}.png`,
+			sizes: `${icon}x${icon}`,
+			type: 'image/png'
+		}));
+	})
+	.catch(err => {
+		console.error(err);
+	});
+
+await writeFile(
+	`${dir}\\manifest.webmanifest`,
+	JSON.stringify(manifest, null, 2),
+	err => err && console.log(err)
+);
+
+console.log('New icons generated successfully! 🎉');

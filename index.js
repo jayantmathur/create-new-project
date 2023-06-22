@@ -173,22 +173,18 @@ const createApp = async (project, type) => {
 			`${project.name}/apps/${appName}/public`
 		);
 
-		generateIcons(`${project.name}/apps/${appName}/public/`).then(
-			async () => {
-				await copy(
-					`${project.name}/apps/${appName}/public/icons/favicon.ico`,
-					`${project.name}/apps/${appName}/app/favicon.ico`
-				);
+		// await generateIcons(`${project.name}/apps/${appName}/public`);
 
-				await appendJson(
-					`${project.name}/apps/${appName}/public/manifest.webmanifest`,
-					{
-						name: `${project.name} app: ${appName}`,
-						short_name: appName
-					}
-				);
+		copy(
+			`${project.name}/apps/${appName}/public/icons/favicon.ico`,
+			`${project.name}/apps/${appName}/app/favicon.ico`
+		);
 
-				console.log('Generated favicons and updated manifest');
+		appendJson(
+			`${project.name}/apps/${appName}/public/manifest.webmanifest`,
+			{
+				name: `${project.name} app: ${appName}`,
+				short_name: appName
 			}
 		);
 
