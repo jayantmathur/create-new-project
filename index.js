@@ -20,6 +20,7 @@ import { fileURLToPath } from 'url';
 
 import packageJson from './package.json' assert { type: 'json' };
 import cli from './utils/cli.js';
+import generateIcons from 'icon-gen';
 
 //
 //
@@ -168,29 +169,48 @@ const createApp = async (project, type) => {
 		});
 
 		await copy(
-			`${__dirname}/templates/apps`,
-			`${project.name}/apps/${appName}`
+			`${__dirname}/public`,
+			`${project.name}/apps/${appName}/public`
 		);
 
-		exec(
-			`npx icon-gen --input ${project.name}/apps/${appName}/public/icon.svg --output ${project.name}/apps/${appName}/public --favicon --favicon-png-sizes 64`,
-			() => {
-				copy(
-					`${project.name}/apps/${appName}/public/favicon.ico`,
+		generateIcons(`${project.name}/apps/${appName}/public/`).then(
+			async () => {
+				await copy(
+					`${project.name}/apps/${appName}/public/icons/favicon.ico`,
 					`${project.name}/apps/${appName}/app/favicon.ico`
 				);
 
-				console.log('Generated favicons');
+				await appendJson(
+					`${project.name}/apps/${appName}/public/manifest.webmanifest`,
+					{
+						name: `${project.name} app: ${appName}`,
+						short_name: appName
+					}
+				);
+
+				console.log('Generated favicons and updated manifest');
 			}
 		);
 
-		await appendJson(
-			`${project.name}/apps/${appName}/public/manifest.webmanifest`,
-			{
-				name: `${project.name} app: ${appName}`,
-				short_name: appName
-			}
-		);
+		// exec(
+		// 	`npx icon-gen --input ${project.name}/apps/${appName}/public/icon.svg --output ${project.name}/apps/${appName}/public/icons --ico --ico-name icon --icns --icns-name icon --favicon`,
+		// 	() => {
+		// 		copy(
+		// 			`${project.name}/apps/${appName}/public/icons/favicon.ico`,
+		// 			`${project.name}/apps/${appName}/app/favicon.ico`
+		// 		);
+
+		// 		console.log('Generated favicons');
+		// 	}
+		// );
+
+		// await appendJson(
+		// 	`${project.name}/apps/${appName}/public/manifest.webmanifest`,
+		// 	{
+		// 		name: `${project.name} app: ${appName}`,
+		// 		short_name: appName
+		// 	}
+		// );
 
 		await copy(
 			`${__dirname}/resources/web`,
@@ -231,6 +251,8 @@ const createApp = async (project, type) => {
 	if (type === 'doc') {
 		if (!existsSync(`${project.name}/docs`))
 			mkdirSync(`${project.name}/docs`);
+
+		copy(`${__dirname}/public`, `${project.name}/docs/${appName}/public`);
 
 		await copy(
 			`${__dirname}/templates/docs`,
