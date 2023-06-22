@@ -1,7 +1,7 @@
 {
 	"name": "create-new-project",
 	"description": "Custom CLI to create a new project repository",
-	"version": "1.8.4",
+	"version": "1.9.0",
 	"license": "UNLICENSED",
 	"type": "module",
 	"bin": {
@@ -19,7 +19,7 @@
 	"files": [
 		"index.js",
 		"utils",
-		"repos",
+		"templates",
 		"common",
 		"resources",
 		"public"
@@ -42,6 +42,7 @@
 		"cli-welcome": "^2.2.2",
 		"deepmerge": "^4.2.2",
 		"fs-extra": "^11.1.0",
+		"icon-gen": "^3.0.1",
 		"inquirer": "^9.1.4",
 		"meow": "^9.0.0"
 	},
