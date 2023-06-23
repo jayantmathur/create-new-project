@@ -18,11 +18,14 @@ timestamp = time.strftime("%m%d", time.strptime(time.ctime(os.path.getctime(file
 
 # Copy the file
 
+
 if args.name != "":
-    shutil.copyfile(
-        filepath,
-        os.path.split(filepath)[0]
-        + "/"
-        + str(args.name)
-        + os.path.splitext(filepath)[1],
-    )
+    newname = str(args.name)
+else:
+    newname = "v" + str(timestamp)
+
+
+shutil.copyfile(
+    filepath,
+    os.path.split(filepath)[0] + "/" + newname + os.path.splitext(filepath)[1],
+)
