@@ -24,7 +24,7 @@
   "pwa": {
     "dependencies": ["next-pwa", "@vercel/analytics"],
     "devDependencies": ["vercel"],
-    "resources": [],
+    "resources": [{ "src": "web/pwa" }],
     "postinstalls": ["next telemetry disable"],
     "scripts": {
       "deploy": "vercel --prod"
