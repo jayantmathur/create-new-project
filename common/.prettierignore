@@ -1,5 +1,5 @@
 _extensions
 resources
-src-tauri
+src-tauri/target
 node_modules
 .*
