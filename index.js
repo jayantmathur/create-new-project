@@ -175,9 +175,8 @@ const createApp = async (project, type) => {
 
 		// await generateIcons(`${project.name}/apps/${appName}/public`);
 
-		copy(
-			`${project.name}/apps/${appName}/public/icons/favicon.ico`,
-			`${project.name}/apps/${appName}/app/favicon.ico`
+		rm(`${project.name}/apps/${appName}/app/favicon.ico`, () =>
+			console.log('Removed default favicon in app dir')
 		);
 
 		appendJson(
