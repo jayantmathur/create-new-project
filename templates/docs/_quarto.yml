@@ -1,5 +1,6 @@
 project:
   output-dir: output
+  # pre-render: [_scripts/convert.bat _stats.ipynb]
   # post-render: [_scripts/rename.py]
 
 bibliography: [references.json]

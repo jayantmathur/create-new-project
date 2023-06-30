@@ -16,7 +16,7 @@ $endif$
 
 $if(authors)$
 $for(authors/first)$
-\fancyfoot[L]{Contact:~$it.name.literal$$if(it.email)$~at~ $it.email$$endif$}
+\fancyfoot[L]{$it.name.literal$$if(it.email)$~at~ $it.email$$endif$}
 $endfor$
 $endif$
 \thispagestyle{fancy}
