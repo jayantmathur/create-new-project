@@ -98,10 +98,9 @@ const createNewProject = async project => {
 			build: 'turbo run --no-daemon build',
 			postbuild: 'yarn push --major',
 			dev: 'turbo run --no-daemon dev',
-			format: 'prettier --write "**/*.{ts,tsx,md,qmd,tex,json,ipynb}" --loglevel silent',
+			format: 'prettier --write "**/*.{ts,tsx,md,qmd,mdx,tex,json,ipynb}" --loglevel silent',
 			save: './packages/symlink/index.bat',
 			padd: 'node ./packages/padd',
-			'import-resource': 'node ./packages/import-resource',
 			expose: 'node ./packages/expose'
 		}
 	});
@@ -225,8 +224,7 @@ const createApp = async (project, type) => {
 		await appendJson(`${project.name}/package.json`, {
 			scripts: {
 				deploy: 'turbo run --no-daemon deploy',
-				preinstall: 'yarn typesync & echo Done!',
-				'create-index': 'node ./packages/create-index'
+				preinstall: 'yarn typesync & echo Done!'
 			}
 		});
 
