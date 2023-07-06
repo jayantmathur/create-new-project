@@ -1,0 +1,30 @@
+title: Blog Template
+version: 0.1.0
+contributes:
+    formats:
+        common:
+            date-format: long
+            colorlinks: true
+            urlcolor: cyan
+            linkcolor: cyan
+            fontsize: 10pt
+            papersize: letter
+            mainfont: Calibri
+            sansfont: Calibri
+
+            # toc: true
+            # number-sections: true
+            # lof: true
+            # lot: true
+
+            fig-width: 3.5
+
+            csl: https://www.zotero.org/styles/chicago-author-date
+
+        html:
+            template: 'index.html'
+
+            template-partials:
+                - 'partials/metadata.html'
+                - 'partials/title.html'
+                - 'partials/toc.html'
