@@ -35,6 +35,7 @@ abstract: |
 keywords: [template, demo]
 
 format:
+  blog-html: default
   main-pdf: default
 ---
 

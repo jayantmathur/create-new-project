@@ -7,7 +7,7 @@ contributes:
             colorlinks: true
             urlcolor: cyan
             linkcolor: cyan
-            fontsize: 10pt
+            # fontsize: 10pt
             papersize: letter
             mainfont: Calibri
             sansfont: Calibri
@@ -22,9 +22,12 @@ contributes:
             csl: https://www.zotero.org/styles/chicago-author-date
 
         html:
+            embed-resources: true
+            standalone: true
+
             template: 'index.html'
 
             template-partials:
-                - 'partials/metadata.html'
-                - 'partials/title.html'
-                - 'partials/toc.html'
+                # - 'partials/metadata.html'
+                - 'partials/title-block.html'
+                # - 'partials/toc.html'

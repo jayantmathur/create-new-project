@@ -287,7 +287,12 @@ const createApp = async (project, type) => {
 			`${project.name}/docs/${appName}/_extensions/main`
 		);
 
-		console.log('Imported quarto template extension\n');
+		await copy(
+			`${__dirname}/resources/docs/quarto/blog`,
+			`${project.name}/docs/${appName}/_extensions/blog`
+		);
+
+		console.log('Imported quarto template extensions\n');
 	}
 
 	await sleep(1000);

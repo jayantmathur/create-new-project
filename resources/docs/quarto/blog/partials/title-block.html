@@ -1,0 +1,86 @@
+<div class="flex flex-col gap-y-6 mb-10 pb-10 border-bottom">
+    $if(title)$
+    <div>
+        <h1>$title$</h1>
+        $if(subtitle)$
+        <div class="italic text-xl -mt-6">$subtitle$</div>
+        $endif$
+    </div>
+    $endif$
+
+    $if(keywords)$
+    <div>
+        <div class="font-bold py-2">Keywords</div>
+        <div class="flex flex-row flex-wrap justify-start items-center text-center gap-2 text-xs">
+            $for(keywords)$
+            <span class="border border-primary rounded-lg text-center px-4 py-2 text-nowrap min-w-[5rem]">
+                $it$
+            </span>
+            $endfor$
+        </div>
+    </div>
+    $endif$
+
+
+    $if(by-author)$
+    <div>
+        <div class="font-bold">Author(s)</div>
+        <div class="flex flex-row flex-wrap gap-10">
+            $for(by-author)$
+            <div class="flex flex-col">
+                <div>
+                    $if(it.name.literal)$
+                    $it.name.literal$
+                    $endif$
+                </div>
+                <div class="text-xs">
+                    $if(by-author.affiliations)$
+                    <div>
+                        $for(by-author.affiliations)$
+                        <div class="flex flex-col">
+                            <div>$it.name$</div>
+                            <div>$it.department$</div>
+                            <div class="italic">$it.city$, $it.region$, $it.postal-code$</div>
+                        </div>
+                        $endfor$
+                    </div>
+                    $endif$
+
+
+                    $if(by-author.email)$
+                    <div class="flex flex-col">
+                        <div class="flex flex-row gap-x-2">
+                            ✉️
+                            <div href="mailto:$by-author.email$" class="link link-primary">
+                                $by-author.email$
+                            </div>
+                        </div>
+
+                        $if(it.attributes.corresponding)$
+                        <div class="italic">(corresponding)</div>
+                        $endif$
+                    </div>
+                    $endif$
+                </div>
+            </div>
+            $endfor$
+        </div>
+    </div>
+    $endif$
+
+    $if(date)$
+    <div>
+        <div class="font-bold">Last Modified</div>
+        <div>
+            <div>$date$</div>
+        </div>
+    </div>
+    $endif$
+
+    $if(abstract)$
+    <div class="flex flex-col">
+        <div class="font-bold">Abstract</div>
+        <div>$abstract$</div>
+    </div>
+    $endif$
+</div>
