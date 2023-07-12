@@ -1,5 +1,5 @@
 $if(title)$
-\title{\textbf{$title$}$if(thanks)$\thanks{$thanks$}$endif$}
+\title{$if(titlegraphic)$\vspace*{-3\baselineskip}\includegraphics{$titlegraphic$}\\$endif$\textbf{$title$}$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
 $if(beamer)$
