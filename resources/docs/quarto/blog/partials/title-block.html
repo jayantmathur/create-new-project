@@ -38,9 +38,15 @@
                     <div>
                         $for(by-author.affiliations)$
                         <div class="d-flex flex-column">
+                            $if(it.name)$
                             <div>$it.name$</div>
+                            $endif$
+                            $if(it.department)$
                             <div>$it.department$</div>
+                            $endif$
+                            $if(it.city)$
                             <div class="fst-italic">$it.city$, $it.region$, $it.postal-code$</div>
+                            $endif$
                         </div>
                         $endfor$
                     </div>

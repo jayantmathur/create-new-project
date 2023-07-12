@@ -24,6 +24,7 @@ contributes:
             template: 'index.tex'
 
             template-partials:
+                - 'partials/_authors.tex'
                 - 'partials/after-body.tex'
                 - 'partials/before-bib.tex'
                 - 'partials/before-body.tex'
