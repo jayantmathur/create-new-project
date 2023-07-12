@@ -20,55 +20,34 @@
   $for(css)$
   <link rel="stylesheet" href="$css$" />
   $endfor$
-
-  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.9/dist/full.css" rel="stylesheet" type="text/css" /> -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            // sans: ['var(--font-futura-now)']
-            sans: [
-              'Calibri, Verdana, Helvetica, sans-serif'
-            ]
-          },
-        }
-      },
-      // plugins: [require('daisyui')]
-    }
-  </script>
-
 </head>
 
-<body class="prose dark:prose-invert max-w-none bg-transparent">
+<body>
   $if(splash)$
   <img src=$splash$ alt="Splash image for the post" style="width:100%;height:calc(20*(1dvh + 1vw));object-fit:cover" />
   $endif$
 
-  <div class="flex flex-col justify-start items-center w-full h-[100dvh]">
-    $for(include-before)$
-    $include-before$
-    $endfor$
+  $for(include-before)$
+  $include-before$
+  $endfor$
 
-    $if(title)$
-    $title-block.html()$
-    $elseif(subtitle)$
-    $title-block.html()$
-    $elseif(by-author)$
-    $title-block.html()$
-    $endif$
+  $if(title)$
+  $title-block.html()$
+  $elseif(subtitle)$
+  $title-block.html()$
+  $elseif(by-author)$
+  $title-block.html()$
+  $endif$
 
-    $if(toc)$
-    $toc.html()$
-    $endif$
+  $if(toc)$
+  $toc.html()$
+  $endif$
 
-    $body$
+  $body$
 
-    $for(include-after)$
-    $include-after$
-    $endfor$
-  </div>
+  $for(include-after)$
+  $include-after$
+  $endfor$
 </body>
 
 </html>

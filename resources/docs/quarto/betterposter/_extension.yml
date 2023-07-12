@@ -11,11 +11,6 @@ contributes:
             papersize: letter
             mainfont: Calibri
             sansfont: Calibri
-                
-            # toc: true
-            # number-sections: true
-            # lof: true
-            # lot: true
 
             fig-width: 3.5
 
@@ -47,7 +42,3 @@ contributes:
 
             format-resources:
                 - public/
-
-            knitr:
-                opts_chunk:
-                    dev: pdf

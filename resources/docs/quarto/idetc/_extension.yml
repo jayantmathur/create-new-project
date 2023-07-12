@@ -12,10 +12,7 @@ contributes:
             mainfont: Times New Roman
             sansfont: Arial
 
-            # toc: true
             number-sections: true
-            # lof: true
-            # lot: true
 
             fig-width: 3.5
 
@@ -31,7 +28,6 @@ contributes:
                 - footskip=0.5in
                 - columnsep=0.38in
 
-            # fig-pos: "H"
             fig-pos: '!htb'
 
             pdf-engine: lualatex
@@ -45,7 +41,3 @@ contributes:
                 - 'partials/title.tex'
 
             include-in-header: 'partials/_header.tex'
-
-            knitr:
-                opts_chunk:
-                    dev: pdf

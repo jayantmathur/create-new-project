@@ -11,6 +11,8 @@ filters:
 
 commands: [hl]
 
+number-sections: true
+
 execute:
   freeze: auto
   cache: refresh

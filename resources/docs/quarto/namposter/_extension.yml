@@ -15,11 +15,6 @@ contributes:
             environments: [grid]
             commands: [scriptsize]
 
-            # toc: true
-            # number-sections: true
-            # lof: true
-            # lot: true
-
             fig-width: 3.5
 
             csl: https://www.zotero.org/styles/chicago-author-date
@@ -30,7 +25,6 @@ contributes:
                 - paperheight=841mm
                 - margin=1in
 
-            # fig-pos: "H"
             fig-pos: '!htb'
 
             pdf-engine: lualatex
@@ -47,7 +41,3 @@ contributes:
 
             format-resources:
                 - public/
-
-            knitr:
-                opts_chunk:
-                    dev: pdf

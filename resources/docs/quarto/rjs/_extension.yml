@@ -4,8 +4,18 @@ contributes:
     formats:
         common:
             date-format: long
+            colorlinks: true
+            urlcolor: cyan
+            linkcolor: cyan
+            papersize: letter
+            mainfont: Calibri
+            sansfont: Calibri
+
             suppress-bibliography: true
-            # csl: https://www.zotero.org/styles/science
+
+            fig-width: 3.5
+
+            csl: https://www.zotero.org/styles/chicago-author-date
 
         revealjs:
             width: 960
@@ -25,4 +35,6 @@ contributes:
 
             # multiplex: true
             embed-resources: true
+            self-contained: true
+            self-contained-math: true
             slide-tone: true

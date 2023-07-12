@@ -1,19 +1,19 @@
-<div class="flex flex-col gap-y-6 mb-10 pb-10 border-bottom">
+<div class="d-flex flex-column mb-5 pb-5 gap-5 border-bottom">
     $if(title)$
     <div>
         <h1>$title$</h1>
         $if(subtitle)$
-        <div class="italic text-xl -mt-6">$subtitle$</div>
+        <div class="fst-italic">$subtitle$</div>
         $endif$
     </div>
     $endif$
 
     $if(keywords)$
     <div>
-        <div class="font-bold py-2">Keywords</div>
-        <div class="flex flex-row flex-wrap justify-start items-center text-center gap-2 text-xs">
+        <div class="fw-bold pb-2">Keywords</div>
+        <div class="d-flex flex-row flex-wrap gap-2">
             $for(keywords)$
-            <span class="border border-primary rounded-lg text-center px-4 py-2 text-nowrap min-w-[5rem]">
+            <span class="border border-info rounded rounded-5 py-2 px-4 text-nowrap">
                 $it$
             </span>
             $endfor$
@@ -24,23 +24,23 @@
 
     $if(by-author)$
     <div>
-        <div class="font-bold">Author(s)</div>
-        <div class="flex flex-row flex-wrap gap-10">
+        <div class="fw-bold">Author(s)</div>
+        <div class="d-flex flex-row flex-wrap gap-5">
             $for(by-author)$
-            <div class="flex flex-col">
+            <div class="d-flex flex-column">
                 <div>
                     $if(it.name.literal)$
                     $it.name.literal$
                     $endif$
                 </div>
-                <div class="text-xs">
+                <div class="fs-6">
                     $if(by-author.affiliations)$
                     <div>
                         $for(by-author.affiliations)$
-                        <div class="flex flex-col">
+                        <div class="d-flex flex-column">
                             <div>$it.name$</div>
                             <div>$it.department$</div>
-                            <div class="italic">$it.city$, $it.region$, $it.postal-code$</div>
+                            <div class="fst-italic">$it.city$, $it.region$, $it.postal-code$</div>
                         </div>
                         $endfor$
                     </div>
@@ -48,16 +48,16 @@
 
 
                     $if(by-author.email)$
-                    <div class="flex flex-col">
-                        <div class="flex flex-row gap-x-2">
+                    <div class="d-flex flex-column">
+                        <div class="d-flex flex-row gap-2">
                             ✉️
-                            <div href="mailto:$by-author.email$" class="link link-primary">
+                            <a href="mailto:$by-author.email$" class="link-info">
                                 $by-author.email$
-                            </div>
+                            </a>
                         </div>
 
                         $if(it.attributes.corresponding)$
-                        <div class="italic">(corresponding)</div>
+                        <div class="fst-italic">(corresponding)</div>
                         $endif$
                     </div>
                     $endif$
@@ -70,7 +70,7 @@
 
     $if(date)$
     <div>
-        <div class="font-bold">Last Modified</div>
+        <div class="fw-bold">Last Modified</div>
         <div>
             <div>$date$</div>
         </div>
@@ -78,8 +78,8 @@
     $endif$
 
     $if(abstract)$
-    <div class="flex flex-col">
-        <div class="font-bold">Abstract</div>
+    <div class="d-flex flex-column">
+        <div class="fw-bold">Abstract</div>
         <div>$abstract$</div>
     </div>
     $endif$

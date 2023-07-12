@@ -12,11 +12,6 @@ contributes:
             mainfont: Calibri
             sansfont: Calibri
 
-            # toc: true
-            # number-sections: true
-            # lof: true
-            # lot: true
-
             fig-width: 3.5
 
             csl: https://www.zotero.org/styles/chicago-author-date
@@ -25,7 +20,6 @@ contributes:
             geometry:
                 - margin=1in
 
-            # fig-pos: "H"
             fig-pos: '!htb'
 
             pdf-engine: lualatex
@@ -47,7 +41,3 @@ contributes:
                 - 'partials/toc.tex'
 
             include-in-header: 'partials/_header.tex'
-
-            knitr:
-                opts_chunk:
-                    dev: pdf

@@ -7,15 +7,11 @@ contributes:
             colorlinks: true
             urlcolor: cyan
             linkcolor: cyan
-            # fontsize: 10pt
             papersize: letter
             mainfont: Calibri
             sansfont: Calibri
 
-            # toc: true
-            # number-sections: true
-            # lof: true
-            # lot: true
+            toc: true
 
             fig-width: 3.5
 
@@ -23,7 +19,8 @@ contributes:
 
         html:
             embed-resources: true
-            standalone: true
+            self-contained: true
+            self-contained-math: true
 
             template: 'index.html'
 

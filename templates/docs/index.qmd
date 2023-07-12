@@ -41,13 +41,13 @@ format:
 
 # Heading
 
-Content cited from @mathurEffects2023 and @cayleyComprehensive2022 as shown in @fig-sample is also with a footnote [^sample]
+Content cited from @mathurEffects2023 and @cayleyComprehensive2022 is also with a footnote [^sample]
 
 This text continues
 
 [^sample]: this is a sample footnote
 
-![Sample figure](public/logo.svg){#fig-sample width=3.5in}
+<!-- ![Sample figure](public/logo.svg){#fig-sample width=3.5in} -->
 
 # Bibliography
 
