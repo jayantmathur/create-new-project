@@ -11,6 +11,9 @@ filters:
 
 commands: [hl]
 
+colorlinks: true
+# urlcolor: cyan
+# linkcolor: cyan
 number-sections: true
 
 execute:

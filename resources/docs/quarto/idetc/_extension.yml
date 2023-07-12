@@ -4,9 +4,6 @@ contributes:
     formats:
         common:
             date-format: DD/MM/YYYY
-            colorlinks: true
-            urlcolor: cyan
-            linkcolor: cyan
             fontsize: 10pt
             papersize: letter
             mainfont: Times New Roman

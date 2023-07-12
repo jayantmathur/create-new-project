@@ -4,9 +4,6 @@ contributes:
     formats:
         common:
             date-format: long
-            colorlinks: true
-            urlcolor: cyan
-            linkcolor: cyan
             fontsize: 42pt
             papersize: letter
             mainfont: Calibri
