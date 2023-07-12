@@ -23,8 +23,9 @@
 </head>
 
 <body>
-  $if(splash)$
-  <img src=$splash$ alt="Splash image for the post" style="width:100%;height:calc(20*(1dvh + 1vw));object-fit:cover" />
+  $if(titlegraphic)$
+  <img src=$titlegraphic$ alt="Title graphic image for the post"
+    style="width:100%;height:calc(20*(1dvh + 1vw));object-fit:cover" />
   $endif$
 
   $for(include-before)$
