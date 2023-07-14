@@ -52,3 +52,18 @@ $presentation-font-size-root: 18pt;
 .reveal .slide aside .aside-footnotes > li {
 	margin-top: -2rem;
 }
+
+.reveal section.slide {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: start;
+	width: 100%;
+	height: 100%;
+	// border: 2px solid #ccc;
+}
+
+.reveal figure figcaption {
+	text-align: center;
+}

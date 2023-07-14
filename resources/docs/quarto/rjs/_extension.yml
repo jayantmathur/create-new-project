@@ -12,7 +12,7 @@ contributes:
 
             fig-width: 3.5
 
-            csl: https://www.zotero.org/styles/chicago-author-date
+            csl: https://www.zotero.org/styles/chicago-fullnote-bibliography
 
         revealjs:
             width: 960
