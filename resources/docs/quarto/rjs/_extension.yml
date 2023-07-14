@@ -34,6 +34,9 @@ contributes:
             format-resources:
                 - public/
 
+            logo: 'public/icon.svg'
+            footer: '{{< meta date >}}'
+
             # multiplex: true
             embed-resources: true
             self-contained: true

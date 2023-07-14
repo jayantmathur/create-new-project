@@ -33,9 +33,14 @@
   $endif$
   $endif$
 
+
   $if(logo)$
   <div style="display: flex;justify-content: end;">
+    $if(mbdl)$
+    <img src="$mbdl.logo$" style="height:7.5rem" />
+    $else$
     <img src="$logo$" style="height:7.5rem" />
+    $endif$
   </div>
   $endif$
 
