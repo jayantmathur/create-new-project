@@ -19,8 +19,12 @@ contributes:
             height: 720
             transition: fade
             progress: false
-            slideNumber: 'h.v'
             theme: [default, index.scss]
+
+            include-after-body: 
+                - 'partials/after-body.html'
+                
+            # slideNumber: c # check after-body.html for modified numbering
 
             template-partials:
                 - 'partials/_affiliations.html'

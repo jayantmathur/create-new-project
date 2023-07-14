@@ -1,1 +1,10 @@
-<sup>$it.number$</sup>$it.name$, $it.city$, $it.region$, $it.postal-code$
+<sup>$it.number$</sup>
+$if(it.department)$
+$it.department$,
+$endif$
+
+$it.name$,
+
+$if(it.city)$
+$it.city$, $it.region$, $it.postal-code$
+$endif$

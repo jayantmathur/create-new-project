@@ -1,15 +1,42 @@
-<section id="$idprefix$title-slide"$for(title-slide-attributes/pairs)$ $it.key$="$it.value$"$endfor$ class="quarto-title-block" style="text-align: right">
-  <style>p {padding: 1rem 0;}
+<section id="$idprefix$title-slide" $for(title-slide-attributes/pairs)$ $it.key$="$it.value$" $endfor$
+  class="quarto-title-block" $if(mbdl)$style="text-align: left" data-background-color=#0e1424
+  $else$style="text-align: right" $endif$>
+  <style>
+    p {
+      padding: 1rem 0;
+    }
+
+    .quarto-title-block .slide-logo {
+      visibility: hidden !important;
+    }
+
+    .quarto-title-block .footer {
+      visibility: hidden !important;
+    }
   </style>
+  $if(mbdl)$
+  <h2 class="title" style="color: skyblue">$title$</h2>
+  $else$
   <h1 class="title">$title$</h1>
   $if(subtitle)$
-    <p class="subtitle">$subtitle$</p>
+  <p class="subtitle">$subtitle$</p>
+  $endif$
   $endif$
 
   <p class="authors">${by-author:_authors.html()[, ]}</p>
-  <p class="affiliations">${by-affiliation:_affiliations.html()[<br/> ] }</p>
+  <p class="affiliations">${by-affiliation:_affiliations.html()[<br /> ] }</p>
 
+  $if(mbdl)$
+  $else$
   $if(date)$
-    <p class="date">$date$</p>
+  <p class="date">$date$</p>
   $endif$
+  $endif$
+
+  $if(logo)$
+  <div style="display: flex;justify-content: end;">
+    <img src="$logo$" style="height:7.5rem" />
+  </div>
+  $endif$
+
 </section>

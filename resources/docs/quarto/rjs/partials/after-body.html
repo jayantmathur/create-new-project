@@ -1,0 +1,41 @@
+<style>
+    .hide {
+        display: none !important;
+    }
+</style>
+
+<script>
+    Reveal.configure({
+        slideNumber: slide => {
+            // Ignore numbering of vertical slides
+            return [Reveal.getIndices(slide).h];
+        }
+    });
+</script>
+
+
+<script>
+    function removeFooter() {
+        const footer = document.querySelector('div.footer');
+        const slideLogo = document.querySelector('img.slide-logo');
+        const slideNo = document.querySelector('div.slide-number');
+
+        const toggleOnChange = (type = "add") => {
+            if (type === "add") {
+                slideNo.classList.add('hide');
+                slideLogo.classList.add('hide');
+                footer.classList.add('hide');
+            } else if (type === "remove") {
+                slideNo.classList.remove('hide');
+                slideLogo.classList.remove('hide');
+                footer.classList.remove('hide');
+            }
+        };
+
+        toggleOnChange('add');
+
+        Reveal.on('slidechanged', event => Reveal.isFirstSlide() ? toggleOnChange('add') : toggleOnChange('remove'));
+    }
+
+    window.onload = removeFooter();
+</script>

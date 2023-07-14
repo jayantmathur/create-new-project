@@ -47,7 +47,7 @@ This text continues
 
 [^sample]: this is a sample footnote
 
-<!-- ![Sample figure](public/logo.svg){#fig-sample width=3.5in} -->
+![Sample figure](public/icon.svg){#fig-sample width=3.5in}
 
 # Bibliography
 
