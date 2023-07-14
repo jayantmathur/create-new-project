@@ -33,15 +33,40 @@
   $endif$
   $endif$
 
+  $if(mbdl)$
+  <style>
+    #logos {
+      white-space: nowrap;
+      width: 100%;
+      display: table;
+      float: right;
+    }
 
-  $if(logo)$
-  <div style="display: flex;justify-content: end;">
-    $if(mbdl)$
-    <img src="$mbdl.logo$" style="height:7.5rem" />
-    $else$
-    <img src="$logo$" style="height:7.5rem" />
-    $endif$
+    .logo {
+      vertical-align: middle;
+      padding: 1rem;
+      display: table-cell;
+      text-align: right;
+    }
+
+    .logo img {
+      /* max-width: none; */
+      max-height: 7.5rem;
+    }
+  </style>
+  <div id="logos">
+    $for(mbdl.logos)$
+    <div class="logo">
+      <img src="$it$" />
+    </div>
+    $endfor$
   </div>
+  $else$
+  $if(logo)$
+  <div style="display: flex;justify-content: center;align-items: center;">
+    <img src="$logo$" style="height:7.5rem" />
+  </div>
+  $endif$
   $endif$
 
 </section>
