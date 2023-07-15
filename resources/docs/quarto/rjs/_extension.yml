@@ -25,6 +25,7 @@ contributes:
                 - 'partials/after-body.html'
                 
             # slideNumber: c # check after-body.html for modified numbering
+            template: 'index.template'
 
             template-partials:
                 - 'partials/_affiliations.html'

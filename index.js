@@ -98,7 +98,7 @@ const createNewProject = async project => {
 			build: 'turbo run --no-daemon build',
 			postbuild: 'yarn push --major',
 			dev: 'turbo run --no-daemon dev',
-			format: 'prettier --write "**/*.{ts,tsx,md,qmd,mdx,tex,json,ipynb}" --log-level silent',
+			format: 'prettier --write "**/*.{ts,tsx,md,qmd,mdx,tex,json,ipynb}" --loglevel silent',
 			save: './packages/symlink/index.bat',
 			padd: 'node ./packages/padd',
 			expose: 'node ./packages/expose'

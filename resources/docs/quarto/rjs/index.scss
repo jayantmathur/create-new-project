@@ -16,7 +16,7 @@ $presentation-font-size-root: 18pt;
 // $border-width: 1px;
 // $border-radius: 3px;
 // $presentation-heading-font: $font-family-sans-serif;
-// $presentation-heading-color: $body-color;
+$presentation-heading-color: #0e1424;
 // $presentation-heading-line-height: 1.2;
 // $presentation-heading-letter-spacing: normal;
 // $presentation-heading-text-transform: none;
@@ -82,6 +82,7 @@ $presentation-font-size-root: 18pt;
 .reveal figure figcaption {
 	text-align: center;
 }
+
 
 // .reveal.has-logo .slide-number {
 // 	bottom: 8px !important;
